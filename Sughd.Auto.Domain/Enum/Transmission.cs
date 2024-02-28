@@ -2,7 +2,7 @@
 
 public enum Transmission
 {
-    MEKHANOK = 0,
+    MEKHANIK = 0,
     AUTOMAT = 1,
     ROBOT = 2
 }
