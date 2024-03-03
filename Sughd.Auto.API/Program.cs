@@ -1,5 +1,6 @@
 using Sughd.Auto.Application.Interfaces;
 using Sughd.Auto.Application.Services;
+using Sughd.Auto.Infrastructure.DataBase;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<ICarService, CarService>();
+builder.Services.AddDbContext<EFContext>(options =>
+{
+    builder.Configuration.GetConnectionString("DefaultConnection");
+});
+
 
 var app = builder.Build();
 
