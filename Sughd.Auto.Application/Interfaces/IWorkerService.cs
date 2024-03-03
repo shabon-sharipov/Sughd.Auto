@@ -1,8 +1,9 @@
 ﻿using Sughd.Auto.Application.RequestModels;
 using Sughd.Auto.Application.ResponseModels;
+using Sughd.Auto.Domain.Models;
 
 namespace Sughd.Auto.Application.Interfaces;
 
-public interface IWorkerService : IBaseService<WorkerRequestModel, WorkerResponseModel>
+public interface IWorkerService : IBaseService<Worker, WorkerRequestModel, WorkerResponseModel>
 {
 }
