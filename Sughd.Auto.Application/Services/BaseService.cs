@@ -2,7 +2,7 @@
 
 namespace Sughd.Auto.Application.Services;
 
-public abstract class BaseService<TRequest, TResponse> : IBaseService<TRequest, TResponse>
+public abstract class BaseService<TEntity, TRequest, TResponse> : IBaseService<TEntity, TRequest, TResponse>
 {
     public virtual async Task<TResponse> Create(TRequest entity, CancellationToken cancellationToken)
     {
