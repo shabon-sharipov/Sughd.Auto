@@ -8,6 +8,7 @@ public class EFContext : DbContext
 {
     public EFContext(DbContextOptions<EFContext> dbContextOptions) : base(dbContextOptions)
     {
+        Database.EnsureCreated();
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

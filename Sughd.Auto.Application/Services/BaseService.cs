@@ -1,9 +1,21 @@
 ﻿using Sughd.Auto.Application.Interfaces;
+using Sughd.Auto.Application.Interfaces.Repositories;
+using Sughd.Auto.Domain.Abstract;
 
 namespace Sughd.Auto.Application.Services;
 
 public abstract class BaseService<TEntity, TRequest, TResponse> : IBaseService<TEntity, TRequest, TResponse>
 {
+    //TODO: need Inject repositories
+    // private readonly IRepository<TEntity> _repository;
+    //
+    // // private readonly IMapper _mapper;
+    // protected BaseService(IRepository<TEntity> repository)
+    // {
+    //     _repository = repository;
+    //     //_mapper = mapper;
+    // }
+
     public virtual async Task<TResponse> Create(TRequest entity, CancellationToken cancellationToken)
     {
         throw new NotImplementedException();

@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Sughd.Auto.Application.Interfaces;
 using Sughd.Auto.Application.RequestModels;
+using Sughd.Auto.Infrastructure.DataBase;
 
 namespace Sughd.Auto.API.Controllers;
 
@@ -18,13 +20,14 @@ public class CarController : ControllerBase
     [HttpGet("GetById")]
     public async Task<IActionResult> GetById(ulong id)
     {
-        //var s = await _carService.GetById(id, CancellationToken.None);
+        var s = await _carService.GetById(id, CancellationToken.None);
         return Ok("ueiwlcjbsa");
     }
 
     [HttpGet("GetAll")]
     public async Task<IActionResult> GetAll([FromRoute] int pageSize, [FromRoute] int offSet)
     {
+        //EFContext s = new EFContext(new DbContextOptions<EFContext>());
         return Ok();
     }
 

@@ -1,6 +1,12 @@
-﻿namespace Sughd.Auto.Infrastructure.Repositories;
+﻿using Sughd.Auto.Application.Interfaces.Repositories;
+using Sughd.Auto.Domain.Models;
+using Sughd.Auto.Infrastructure.DataBase;
 
-public class ColorRepository
+namespace Sughd.Auto.Infrastructure.Repositories;
+
+public class ColorRepository : Repository<Color>, IColorRepository
 {
-    
+    public ColorRepository(EFContext context) : base(context)
+    {
+    }
 }
