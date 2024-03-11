@@ -151,6 +151,9 @@ coverage*.info
 *.coverage
 *.coveragexml
 
+# Ignore workspace.xml file
+workspace.xml
+
 # NCrunch
 _NCrunch_*
 .*crunch*.local.xml
