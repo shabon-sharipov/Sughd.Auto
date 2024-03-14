@@ -9,5 +9,6 @@ public class ModelConfiguration : IEntityTypeConfiguration<Model>
     public void Configure(EntityTypeBuilder<Model> builder)
     {
         builder.HasKey(m => m.Id);
+        builder.Property(c => c.Id).ValueGeneratedOnAdd();
     }
 }

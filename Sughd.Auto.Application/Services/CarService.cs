@@ -8,7 +8,10 @@ namespace Sughd.Auto.Application.Services;
 
 public class CarService : BaseService<Car, CarRequestModel, CarResponseModel>, ICarService
 {
-    public CarService()
+    private readonly ICarRepository _carRepository;
+
+    public CarService(ICarRepository carRepository)
     {
+        _carRepository = carRepository;
     }
 }

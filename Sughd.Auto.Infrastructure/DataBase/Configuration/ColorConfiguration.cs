@@ -9,5 +9,6 @@ public class ColorConfiguration : IEntityTypeConfiguration<Color>
     public void Configure(EntityTypeBuilder<Color> builder)
     {
         builder.HasKey(c => c.Id);
+        builder.Property(c => c.Id).ValueGeneratedOnAdd();
     }
 }

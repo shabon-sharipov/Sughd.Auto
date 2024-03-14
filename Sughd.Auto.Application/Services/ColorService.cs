@@ -8,7 +8,7 @@ namespace Sughd.Auto.Application.Services;
 
 public class ColorService : BaseService<Color, ColorRequestModel, ColorResponseModel>, IColorService
 {
-    public ColorService(IRepository<Color> repository)
+    public ColorService()
     {
     }
 }

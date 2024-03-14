@@ -9,5 +9,6 @@ public class CarBodyConfiguration : IEntityTypeConfiguration<CarBody>
     public void Configure(EntityTypeBuilder<CarBody> builder)
     {
        builder.HasKey(x => x.Id);
+       builder.Property(c => c.Id).ValueGeneratedOnAdd();
     }
 }
