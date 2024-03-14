@@ -1,0 +1,5 @@
+﻿How to create?
+dotnet ef migrations add Initial -c EFContext -p "Sughd.Auto.Infrastructure" -o Migrations -s "Sughd.Auto.API"
+
+How to update?
+dotnet ef database update -c EFContext -p "Sughd.Auto.Infrastructure" -s "Sughd.Auto.API"

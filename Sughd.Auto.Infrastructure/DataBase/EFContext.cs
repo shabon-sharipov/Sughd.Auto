@@ -10,6 +10,12 @@ public class EFContext : DbContext
     {
     }
 
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=SughdAuto;Username=postgres;Password=4321");
+        base.OnConfiguring(optionsBuilder);
+    }
+    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
