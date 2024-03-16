@@ -11,6 +11,5 @@ public class CarModelService : BaseService<Model, CarModelRequestModel, CarModel
     private readonly ICarModelRepository _modelRepository;
     public CarModelService(ICarModelRepository modelRepository)
     {
-        _modelRepository = modelRepository;
     }
 }

@@ -1,4 +1,5 @@
-﻿using Sughd.Auto.Application.Interfaces;
+﻿using AutoMapper;
+using Sughd.Auto.Application.Interfaces;
 using Sughd.Auto.Application.Interfaces.Repositories;
 using Sughd.Auto.Application.RequestModels;
 using Sughd.Auto.Application.ResponseModels;

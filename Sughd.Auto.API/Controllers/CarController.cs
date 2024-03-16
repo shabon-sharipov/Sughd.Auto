@@ -18,35 +18,37 @@ public class CarController : ControllerBase
     }
 
     [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(ulong id)
+    public async Task<IActionResult> GetById(long id)
     {
-        var s = await _carService.GetById(id, CancellationToken.None);
-        return Ok("ueiwlcjbsa");
+        var result = await _carService.GetById(id, CancellationToken.None);
+        return Ok(result);
     }
 
     [HttpGet("GetAll")]
     public async Task<IActionResult> GetAll([FromRoute] int pageSize, [FromRoute] int offSet)
     {
-        //EFContext s = new EFContext(new DbContextOptions<EFContext>());
-        return Ok();
+        var result = await _carService.Get(pageSize, offSet, CancellationToken.None);
+        return Ok(result);
     }
 
     [HttpPost]
     public async Task<IActionResult> Post(CarRequestModel carRequestModel)
     {
         var result = await _carService.Create(carRequestModel, CancellationToken.None);
-        return Ok();
+        return Ok(result);
     }
 
     [HttpPut]
-    public async Task<IActionResult> Update(ulong id, CarRequestModel carRequestModel)
+    public async Task<IActionResult> Update(long id, CarRequestModel carRequestModel)
     {
-        return Ok();
+        var result = await _carService.Update(id, carRequestModel, CancellationToken.None);
+        return Ok(result);
     }
 
     [HttpDelete]
-    public async Task<IActionResult> Delete(ulong id)
+    public async Task<IActionResult> Delete(long id)
     {
-        return Ok();
+        var result = await _carService.Delete(id, CancellationToken.None);
+        return Ok(result);
     }
 }

@@ -28,8 +28,8 @@ public abstract class Repository<T> where T : EntityBase
         return _dbSet.Skip(pageSize * PageNumber).Take(pageSize);
     }
 
-    public T Find(ulong id) => _dbSet.Find(id);
-    public async Task<T> FindAsync(ulong id, CancellationToken cancellationToken = default) => await _dbSet.FindAsync(id, cancellationToken);
+    public T Find(long id) => _dbSet.Find(id);
+    public async Task<T> FindAsync(long id, CancellationToken cancellationToken = default) => await _dbSet.FindAsync(id, cancellationToken);
 
     public void Add(T entity) => _dbSet.Add(entity);
     public void Add(IEnumerable<T> entities) => _dbSet.AddRange(entities);

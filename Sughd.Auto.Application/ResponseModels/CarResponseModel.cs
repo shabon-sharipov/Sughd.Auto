@@ -5,7 +5,7 @@ namespace Sughd.Auto.Application.ResponseModels;
 public class CarResponseModel
 {
     //TODO need delete unnecessary property
-    public ulong Id { get; set; }
+    public long Id { get; set; }
     
     public string Name { get; set; }
 
@@ -29,11 +29,11 @@ public class CarResponseModel
 
     public Transmission Transmission { get; set; }
 
-    public ulong CarBodyId { get; set; }
+    public long CarBodyId { get; set; }
 
-    public ulong CustomerId { get; set; }
+    public long CustomerId { get; set; }
 
-    public ulong MarkaId { get; set; }
+    public long MarkaId { get; set; }
     
-    public ulong ModelId { get; set; }
+    public long ModelId { get; set; }
 }

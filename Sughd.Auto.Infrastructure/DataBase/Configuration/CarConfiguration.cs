@@ -30,5 +30,10 @@ public class CarConfiguration : IEntityTypeConfiguration<Car>
             .WithMany()
             .HasForeignKey(c => c.ModelId)
             .OnDelete(DeleteBehavior.Restrict);
+        
+        builder.HasOne(c => c.Color)
+            .WithMany()
+            .HasForeignKey(c => c.ColorId)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

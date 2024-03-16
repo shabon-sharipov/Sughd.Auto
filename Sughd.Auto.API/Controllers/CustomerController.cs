@@ -16,15 +16,17 @@ public class CustomerController : ControllerBase
     }
     
     [HttpGet("GetById")]
-    public async Task<IActionResult> GetById(ulong id)
+    public async Task<IActionResult> GetById(long id)
     {
-        return Ok("ueiwlcjbsa");
+        var result = await _customerService.GetById(id, CancellationToken.None);
+        return Ok(result);
     }
 
     [HttpGet("GetAll")]
     public async Task<IActionResult> GetAll([FromRoute] int pageSize, [FromRoute] int offSet)
     {
-        return Ok();
+        var result = await _customerService.Get(pageSize, offSet, CancellationToken.None);
+        return Ok(result);
     }
 
     [HttpPost]
@@ -35,14 +37,16 @@ public class CustomerController : ControllerBase
     }
 
     [HttpPut]
-    public async Task<IActionResult> Update(ulong id, CustomerRequestModel customerRequestModel)
+    public async Task<IActionResult> Update(long id, CustomerRequestModel customerRequestModel)
     {
-        return Ok();
+        var result = await _customerService.Update(id,customerRequestModel, CancellationToken.None);
+        return Ok(result);
     }
 
     [HttpDelete]
-    public async Task<IActionResult> Delete(ulong id)
+    public async Task<IActionResult> Delete(long id)
     {
-        return Ok();
+        var result = await _customerService.Delete(id, CancellationToken.None);
+        return Ok(result);
     }
 }

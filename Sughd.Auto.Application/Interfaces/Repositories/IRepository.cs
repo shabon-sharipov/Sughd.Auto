@@ -8,8 +8,8 @@ public interface IRepository<TEntity> where TEntity : EntityBase
     Task<IQueryable<TEntity>> GetAllAsync(int pageSize, int pageNumber, CancellationToken cancellation);
     public IQueryable<TEntity> Set();
 
-    TEntity Find(ulong id);
-    Task<TEntity> FindAsync(ulong id, CancellationToken cancellationToken = default);
+    TEntity Find(long id);
+    Task<TEntity> FindAsync(long id, CancellationToken cancellationToken = default);
 
     void Add(TEntity entity);
     Task AddAsync(TEntity entity, CancellationToken cancellationToken = default);
