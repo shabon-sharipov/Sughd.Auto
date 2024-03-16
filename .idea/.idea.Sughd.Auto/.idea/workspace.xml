@@ -5,13 +5,59 @@
     <projectFile profileName="http">Sughd.Auto.API/Sughd.Auto.API.csproj</projectFile>
     <projectFile profileName="https">Sughd.Auto.API/Sughd.Auto.API.csproj</projectFile>
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="99387cd5-639a-4e04-ab76-153ed889bc08" name="Changes" comment="" />
+    <list default="true" id="99387cd5-639a-4e04-ab76-153ed889bc08" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Sughd.Auto/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Sughd.Auto/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.API/Controllers/CarController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.API/Controllers/CarController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.API/Controllers/CustomerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.API/Controllers/CustomerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/Interfaces/IBaseService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/Interfaces/IBaseService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/Interfaces/Repositories/IRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/Interfaces/Repositories/IRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/RequestModels/CarRequestModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/RequestModels/CarRequestModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/ResponseModels/CarMarkaResponsModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/ResponseModels/CarMarkaResponsModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/ResponseModels/CarModelResponseModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/ResponseModels/CarModelResponseModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/ResponseModels/CarResponseModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/ResponseModels/CarResponseModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/ResponseModels/ColorResponseModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/ResponseModels/ColorResponseModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/ResponseModels/CustomerResponseModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/ResponseModels/CustomerResponseModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/ResponseModels/WorkerResponseModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/ResponseModels/WorkerResponseModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/Services/BaseService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/Services/BaseService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/Services/CarMarkaService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/Services/CarMarkaService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/Services/CarModelService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/Services/CarModelService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/Services/CustomerService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/Services/CustomerService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Domain/Abstract/EntityBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Domain/Abstract/EntityBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Domain/Models/Car.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Domain/Models/Car.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Infrastructure/Repositories/Repository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Infrastructure/Repositories/Repository.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Configuration-tables" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6a81e85ff195479e850379bef1df8288218b0/52/974a8f75/Color.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8fd823e533de462382d4ae6325292edb22918/5b/6ec1c11b/HostApplicationBuilder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f1aee326024147e49348be4f2e96c1d81fc5a0/3d/70734615/IEntityTypeConfiguration`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fb4d77b206114b509c078b78f8ef7d8c46a0/e7/9b0e4bb3/ServiceProvider.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/shabo/OneDrive/Desktop/Sughd.Auto/Sughd.Auto.API/Controllers/CarController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/shabo/OneDrive/Desktop/Sughd.Auto/Sughd.Auto.Application/Interfaces/IBaseService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/shabo/OneDrive/Desktop/Sughd.Auto/Sughd.Auto.Application/Interfaces/Repositories/IRepository.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/shabo/OneDrive/Desktop/Sughd.Auto/Sughd.Auto.Application/ResponseModels/WorkerResponseModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/shabo/OneDrive/Desktop/Sughd.Auto/Sughd.Auto.Application/Services/BaseService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/shabo/OneDrive/Desktop/Sughd.Auto/Sughd.Auto.Application/Services/CarMarkaService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/shabo/OneDrive/Desktop/Sughd.Auto/Sughd.Auto.Domain/Models/Car.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/shabo/OneDrive/Desktop/Sughd.Auto/Sughd.Auto.Infrastructure/Repositories/Repository.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="false" />
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 8
@@ -21,15 +67,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ],
+    "rider.external.source.directories": [
+      "C:\\Users\\shabo\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
+      "C:\\Users\\shabo\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
+      "C:\\Users\\shabo\\AppData\\Local\\Symbols\\src"
+    ]
   }
-}</component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.Sughd.Auto.API: http">
+}]]></component>
+  <component name="RunManager" selected=".NET Launch Settings Profile.Sughd.Auto.API: https">
     <configuration name="Sughd.Auto.API: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Sughd.Auto.API/Sughd.Auto.API.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
@@ -60,7 +121,7 @@
         <option name="Build" />
       </method>
     </configuration>
-    <configuration name="Sughd.Auto.API: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+    <configuration name="Sughd.Auto.API: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile" temporary="true">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Sughd.Auto.API/Sughd.Auto.API.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
       <option name="LAUNCH_PROFILE_NAME" value="https" />
@@ -75,6 +136,16 @@
         <option name="Build" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue=".NET Launch Settings Profile.Sughd.Auto.API: IIS Express" />
+      <item itemvalue=".NET Launch Settings Profile.Sughd.Auto.API: http" />
+      <item itemvalue=".NET Launch Settings Profile.Sughd.Auto.API: https" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue=".NET Launch Settings Profile.Sughd.Auto.API: https" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -86,13 +157,17 @@
       <updated>1709055492710</updated>
       <workItem from="1709055494381" duration="12000" />
       <workItem from="1709055593965" duration="10000" />
+      <workItem from="1710483258180" duration="555000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Added configuration all table" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added configuration all table" />
   </component>
 </project>

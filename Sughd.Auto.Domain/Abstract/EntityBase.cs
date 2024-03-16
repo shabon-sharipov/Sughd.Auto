@@ -2,5 +2,5 @@
 
 public abstract class EntityBase
 {
-    public ulong Id { get; set; }
+    public long Id { get; set; }
 }

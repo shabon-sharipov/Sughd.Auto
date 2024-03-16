@@ -21,12 +21,12 @@ public abstract class BaseService<TEntity, TRequest, TResponse> : IBaseService<T
         throw new NotImplementedException();
     }
 
-    public virtual Task<TResponse> GetById(ulong id, CancellationToken cancellationToken)
+    public virtual Task<TResponse> GetById(long id, CancellationToken cancellationToken)
     {
         throw new NotImplementedException();
     }
 
-    public virtual Task<TResponse> Update(ulong id, TRequest entity, CancellationToken cancellationToken)
+    public virtual Task<TResponse> Update(long id, TRequest entity, CancellationToken cancellationToken)
     {
         throw new NotImplementedException();
     }
@@ -36,7 +36,7 @@ public abstract class BaseService<TEntity, TRequest, TResponse> : IBaseService<T
         throw new NotImplementedException();
     }
 
-    public virtual Task<TResponse> Delete(ulong id, CancellationToken cancellationToken)
+    public virtual Task<TResponse> Delete(long id, CancellationToken cancellationToken)
     {
         throw new NotImplementedException();
     }

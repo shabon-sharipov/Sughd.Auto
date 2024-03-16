@@ -24,12 +24,12 @@ public class CustomerService : BaseService<Customer, CustomerRequestModel, Custo
     {
         var customer = _mapper.Map<Customer>(entity);
         await _customerRepository.AddAsync(customer, cancellationToken);
-        var response = await _customerRepository.SaveChangesAsync(cancellationToken);
+        await _customerRepository.SaveChangesAsync(cancellationToken);
 
         return _mapper.Map<CustomerResponseModel>(customer);
     }
 
-    public override async Task<CustomerResponseModel> GetById(ulong id, CancellationToken cancellationToken)
+    public override async Task<CustomerResponseModel> GetById(long id, CancellationToken cancellationToken)
     {
         var customer = await _customerRepository.FindAsync(id, cancellationToken);
 

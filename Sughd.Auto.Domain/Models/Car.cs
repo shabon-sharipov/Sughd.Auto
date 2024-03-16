@@ -28,14 +28,17 @@ public class Car : EntityBase
     public Transmission Transmission { get; set; }
 
     public CarBody CarBody { get; set; }
-    public ulong CarBodyId { get; set; }
+    public long CarBodyId { get; set; }
 
     public Customer Customer { get; set; }
-    public ulong CustomerId { get; set; }
+    public long CustomerId { get; set; }
 
     public Marka Marka { get; set; }
-    public ulong MarkaId { get; set; }
+    public long MarkaId { get; set; }
 
     public Model Model { get; set; }
-    public ulong ModelId { get; set; }
+    public long ModelId { get; set; }
+    
+    public Color Color { get; set; }
+    public long ColorId { get; set; }
 }
