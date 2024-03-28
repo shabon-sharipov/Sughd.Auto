@@ -10,11 +10,18 @@ public class AutoMapperConfiguration : Profile
     public AutoMapperConfiguration()
     {
         MapCustomers();
+        MapWorker();
     }
 
     private void MapCustomers()
     {
         CreateMap<CustomerRequestModel, Customer>();
         CreateMap<Customer, CustomerResponseModel>();
+    }
+
+    private void MapWorker()
+    {
+        CreateMap<WorkerRequestModel, Worker>();
+        CreateMap<Worker, WorkerResponseModel>();
     }
 }

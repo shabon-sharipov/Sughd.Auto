@@ -1,6 +1,6 @@
 ﻿namespace Sughd.Auto.Application.Interfaces;
 
-public interface IBaseService<TEntity, TRequest, TResponse>
+public interface IBaseService<TRequest, TResponse>
 {
     Task<TResponse> Create(TRequest entity, CancellationToken cancellationToken);
 

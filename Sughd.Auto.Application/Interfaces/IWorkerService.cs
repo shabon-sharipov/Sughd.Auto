@@ -4,6 +4,6 @@ using Sughd.Auto.Domain.Models;
 
 namespace Sughd.Auto.Application.Interfaces;
 
-public interface IWorkerService : IBaseService<Worker, WorkerRequestModel, WorkerResponseModel>
+public interface IWorkerService : IBaseService<WorkerRequestModel, WorkerResponseModel>
 {
 }

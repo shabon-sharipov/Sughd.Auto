@@ -4,6 +4,6 @@ using Sughd.Auto.Domain.Models;
 
 namespace Sughd.Auto.Application.Interfaces;
 
-public interface ICustomerService : IBaseService<Customer, CustomerRequestModel, CustomerResponseModel>
+public interface ICustomerService : IBaseService<CustomerRequestModel, CustomerResponseModel>
 {
 }
