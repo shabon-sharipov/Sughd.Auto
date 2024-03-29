@@ -11,6 +11,10 @@ public class AutoMapperConfiguration : Profile
     {
         MapCustomers();
         MapWorker();
+        MapCar();
+        MapModel();
+        MapMarka();
+        MapColor();
     }
 
     private void MapCustomers()
@@ -23,5 +27,29 @@ public class AutoMapperConfiguration : Profile
     {
         CreateMap<WorkerRequestModel, Worker>();
         CreateMap<Worker, WorkerResponseModel>();
+    }
+
+    private void MapCar()
+    {
+        CreateMap<CarRequestModel, Car>();
+        CreateMap<Car, CarResponseModel>();
+    }
+
+    private void MapModel()
+    {
+        CreateMap<CarModelRequestModel, Model>();
+        CreateMap<Model, CarModelResponseModel>();
+    }
+    
+    private void MapMarka()
+    {
+        CreateMap<CarMarkaRequestModel, Marka>();
+        CreateMap<Marka, CarMarkaResponsModel>();
+    }
+    
+    private void MapColor()
+    {
+        CreateMap<ColorRequestModel, Color>();
+        CreateMap<Color, ColorResponseModel>();
     }
 }
