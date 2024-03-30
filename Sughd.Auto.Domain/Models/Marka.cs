@@ -6,10 +6,13 @@ public class Marka : EntityBase
 {
     public string Name { get; set; }
 
-    public List<Model> Model { get; set; }
+    public virtual List<Model> Model { get; set; }
 }
 
 public class Model : EntityBase
 {
+    public long MarkaId { get; set; }
+    public virtual Marka Marka { get; set; }
+    
     public string Name { get; set; }
 }

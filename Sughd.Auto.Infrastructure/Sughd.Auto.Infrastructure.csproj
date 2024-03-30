@@ -21,4 +21,7 @@
     <ProjectReference Include="..\Sughd.Auto.Application\Sughd.Auto.Application.csproj" />
     <ProjectReference Include="..\Sughd.Auto.Domain\Sughd.Auto.Domain.csproj" />
   </ItemGroup>
+   <ItemGroup>
+     <Folder Include="Migrations\" />
+   </ItemGroup>
 </Project>

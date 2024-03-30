@@ -12,9 +12,10 @@ public class CarService : ICarService
     private readonly ICarRepository _carRepository;
     private readonly IMapper _mapper;
 
-    public CarService(ICarRepository carRepository)
+    public CarService(ICarRepository carRepository, IMapper mapper)
     {
         _carRepository = carRepository;
+        _mapper = mapper;
     }
 
     public async Task<CarResponseModel> Create(CarRequestModel entity, CancellationToken cancellationToken)

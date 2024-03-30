@@ -28,17 +28,15 @@ public class Car : EntityBase
     public Transmission Transmission { get; set; }
 
     public CarBody CarBody { get; set; }
-    public long CarBodyId { get; set; }
 
-    public Customer Customer { get; set; }
+    public virtual Customer Customer { get; set; }
     public long CustomerId { get; set; }
 
-    public Marka Marka { get; set; }
+    public virtual Marka Marka { get; set; }
     public long MarkaId { get; set; }
 
-    public Model Model { get; set; }
+    public virtual Model Model { get; set; }
     public long ModelId { get; set; }
     
-    public Color Color { get; set; }
-    public long ColorId { get; set; }
+    public string Color { get; set; }
 }

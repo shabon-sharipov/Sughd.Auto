@@ -4,7 +4,5 @@ namespace Sughd.Auto.Application.RequestModels;
 
 public class CarMarkaRequestModel
 {
-    public string Name { get; set; }
-
-    public List<Model> Model { get; set; }
+    public string Name { get; set; } = string.Empty;
 }

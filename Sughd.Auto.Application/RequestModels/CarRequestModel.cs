@@ -27,11 +27,13 @@ public class CarRequestModel
 
     public Transmission Transmission { get; set; }
 
-    public long CarBodyId { get; set; }
-
+    public CarBody CarBody { get; set; }
+    
     public long CustomerId { get; set; }
-
+    
     public long MarkaId { get; set; }
     
     public long ModelId { get; set; }
+    
+    public string Color { get; set; }
 }

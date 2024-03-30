@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using Sughd.Auto.Application;
 using Sughd.Auto.Infrastructure;
 using Sughd.Auto.Infrastructure.DataBase;
@@ -12,6 +13,7 @@ builder.Services.AddInfrastructureLayer();
 builder.Services.AddDbContext<EFContext>(options =>
 {
     builder.Configuration.GetConnectionString("DefaultConnection");
+    options.UseLazyLoadingProxies();
 });
 
 var app = builder.Build();

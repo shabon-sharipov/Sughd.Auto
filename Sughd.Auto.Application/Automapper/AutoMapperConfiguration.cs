@@ -14,7 +14,6 @@ public class AutoMapperConfiguration : Profile
         MapCar();
         MapModel();
         MapMarka();
-        MapColor();
     }
 
     private void MapCustomers()
@@ -45,11 +44,5 @@ public class AutoMapperConfiguration : Profile
     {
         CreateMap<CarMarkaRequestModel, Marka>();
         CreateMap<Marka, CarMarkaResponsModel>();
-    }
-    
-    private void MapColor()
-    {
-        CreateMap<ColorRequestModel, Color>();
-        CreateMap<Color, ColorResponseModel>();
     }
 }
