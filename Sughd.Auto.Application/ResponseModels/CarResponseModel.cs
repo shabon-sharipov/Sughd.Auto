@@ -4,7 +4,6 @@ namespace Sughd.Auto.Application.ResponseModels;
 
 public class CarResponseModel
 {
-    //TODO need delete unnecessary property
     public long Id { get; set; }
     
     public string Name { get; set; }

@@ -5,15 +5,13 @@ namespace Sughd.Auto.Domain.Models;
 
 public class Car : EntityBase
 {
-    public string Name { get; set; }
+    public string VINCode { get; set; } = string.Empty;
 
-    public string VINCode { get; set; }
-
-    public string DateOfPablisher { get; set; }
+    public string DateOfPablisher { get; set; } = string.Empty;
 
     public decimal Price { get; set; }
 
-    public string EngineCapacity { get; set; }
+    public decimal EngineCapacity { get; set; }
 
     public decimal Mileage { get; set; }
 
@@ -37,6 +35,6 @@ public class Car : EntityBase
 
     public virtual Model Model { get; set; }
     public long ModelId { get; set; }
-    
-    public string Color { get; set; }
+
+    public string Color { get; set; } = string.Empty;
 }

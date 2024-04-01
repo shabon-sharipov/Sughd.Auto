@@ -13,9 +13,5 @@ public class MarkaConfiguration : IEntityTypeConfiguration<Marka>
         
         builder.Property(m => m.Name)
          .IsRequired();
-        
-        builder.HasMany(m => m.Model)
-       .WithOne()
-       .OnDelete(DeleteBehavior.Restrict);
     }
 }

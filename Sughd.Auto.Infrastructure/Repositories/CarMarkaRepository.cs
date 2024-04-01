@@ -17,7 +17,7 @@ public class CarMarkaRepository : Repository<Marka>, ICarMarkaRepository
 
     public async Task<Marka> FindAsync(long id, CancellationToken cancellationToken = default)
     {
-        var test = await _dbSet.Include(s => s.Model).FirstAsync(m=>m.Id == id, cancellationToken);
+        var test = await _dbSet.FirstAsync(m=>m.Id == id, cancellationToken);
 
         return test;
     }
