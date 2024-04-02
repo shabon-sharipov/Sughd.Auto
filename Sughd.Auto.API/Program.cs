@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Sughd.Auto.Application;
+using Sughd.Auto.Application.Services.Auth;
 using Sughd.Auto.Domain.Models;
 using Sughd.Auto.Infrastructure;
 using Sughd.Auto.Infrastructure.DataBase;
@@ -17,6 +18,9 @@ builder.Services.AddDbContext<EFContext>(options =>
     builder.Configuration.GetConnectionString("DefaultConnection");
     options.UseLazyLoadingProxies();
 });
+
+var jwtSettings =builder.Configuration.GetSection("JwtSettings").Get<TokenService.JwtSettings>();
+builder.Services.AddSingleton(jwtSettings);
 
 builder.Services.AddIdentity<User, IdentityRole>(options =>
     {
@@ -36,7 +40,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.MapIdentityApi<IdentityUser>();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

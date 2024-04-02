@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Sughd.Auto.Domain.Abstract;
@@ -15,7 +14,7 @@ public class EFContext : IdentityDbContext<User>
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=SughdAuto;Username=postgres;Password=4321");
+        optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=SughdAuto1;Username=postgres;Password=4321");
         base.OnConfiguring(optionsBuilder);
     }
     
