@@ -12,8 +12,6 @@ public static class DependencyInjection
         services.AddScoped<ICarService, CarService>();
         services.AddScoped<ICarModelService, CarModelService>();
         services.AddScoped<ICarMarkaService, CarMarkaService>();
-        services.AddScoped<ICustomerService, CustomerService>();
-        services.AddScoped<IWorkerService, WorkerService>();
         services.AddAutoMapper(typeof(AutoMapperConfiguration).Assembly);
     }
 }

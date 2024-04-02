@@ -27,9 +27,6 @@ public class Car : EntityBase
 
     public CarBody CarBody { get; set; }
 
-    public virtual Customer Customer { get; set; }
-    public long CustomerId { get; set; }
-
     public virtual Marka Marka { get; set; }
     public long MarkaId { get; set; }
 

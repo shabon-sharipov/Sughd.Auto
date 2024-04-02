@@ -1,10 +1,13 @@
 ﻿using System.Reflection;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Sughd.Auto.Domain.Abstract;
+using Sughd.Auto.Domain.Models;
 
 namespace Sughd.Auto.Infrastructure.DataBase;
 
-public class EFContext : DbContext
+public class EFContext : IdentityDbContext<User>
 {
     public EFContext(DbContextOptions<EFContext> dbContextOptions) : base(dbContextOptions)
     {

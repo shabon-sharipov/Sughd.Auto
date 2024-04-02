@@ -1,5 +1,7 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Sughd.Auto.Application;
+using Sughd.Auto.Domain.Models;
 using Sughd.Auto.Infrastructure;
 using Sughd.Auto.Infrastructure.DataBase;
 
@@ -16,6 +18,16 @@ builder.Services.AddDbContext<EFContext>(options =>
     options.UseLazyLoadingProxies();
 });
 
+builder.Services.AddIdentity<User, IdentityRole>(options =>
+    {
+        options.Password.RequireDigit = true;
+        options.Password.RequireLowercase = true;
+        options.Password.RequireUppercase = true;
+        options.Password.RequiredLength = 8;
+    })
+    .AddEntityFrameworkStores<EFContext>()
+    .AddDefaultTokenProviders();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -24,6 +36,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.MapIdentityApi<IdentityUser>();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
