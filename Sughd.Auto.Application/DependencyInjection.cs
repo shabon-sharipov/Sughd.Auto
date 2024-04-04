@@ -17,6 +17,8 @@ public static class DependencyInjection
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IAuthService, AuthService>();
         services.AddScoped<ITokenService, TokenService>();
-        services.AddScoped<IRoleService, RoleService>();
+        services.AddScoped<IRoleService, RoleService>(); 
+        services.AddScoped<ISearchService, SearchService>();
+        services.AddScoped<ICarModelService, CarModelService>();
     }
 }
