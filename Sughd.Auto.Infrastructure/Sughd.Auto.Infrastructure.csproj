@@ -25,4 +25,9 @@
    <ItemGroup>
      <Folder Include="Migrations\" />
    </ItemGroup>
+   <ItemGroup>
+     <Reference Include="Microsoft.Extensions.Configuration">
+       <HintPath>..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.AspNetCore.App\8.0.3\Microsoft.Extensions.Configuration.dll</HintPath>
+     </Reference>
+   </ItemGroup>
 </Project>

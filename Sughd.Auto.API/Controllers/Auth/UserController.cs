@@ -1,24 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Sughd.Auto.Application.Interfaces;
-using Sughd.Auto.Application.RequestModels;
+using Sughd.Auto.Application.RequestModels.Auth;
 
 namespace Sughd.Auto.API.Controllers.Auth;
 
 [ApiController]
 [Route("api/[controller]")]
-public class UserController : ControllerBase
+public class UserController(IUserService userService) : ControllerBase
 {
-    private readonly IUserService _userService;
-
-    public UserController(IUserService userService)
-    {
-        _userService = userService;
-    }
-
     [HttpGet("{userId}")]
     public async Task<IActionResult> GetUserById(string userId)
     {
-        var user = await _userService.GetUserById(userId);
+        var user = await userService.GetUserById(userId);
         if (user == null)
             return NotFound();
 
@@ -28,23 +21,46 @@ public class UserController : ControllerBase
     [HttpGet("email/{email}")]
     public async Task<IActionResult> GetUserByEmail(string email)
     {
-        var user = await _userService.GetUserByEmail(email);
+        var user = await userService.GetUserByEmail(email);
         if (user == null)
             return NotFound();
 
         return Ok(user);
     }
 
-    [HttpPost("create")]
-    public async Task<IActionResult> CreateUser([FromBody] CreateUserRequest request)
+    [HttpPut("UpdateUserRole")]
+    public async Task<IActionResult> UpdateUserRole([FromBody] AddOrUpdateUserRoleRequest updateUserRoleRequest)
     {
-        if (!ModelState.IsValid)
-            return BadRequest(ModelState);
+        try
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-        var user = await _userService.Create(request);
-        if (user == null)
-            return BadRequest("Failed to create user.");
+            await userService.UpdateUserRole(updateUserRoleRequest);
 
-        return CreatedAtAction(nameof(GetUserById), new { userId = user.Id }, user);
+            return Ok("Role updated successfully");
+        }
+        catch (Exception e)
+        {
+            return BadRequest("Failed to update user role.");
+        }
+    }
+    
+    [HttpPost("AddUserRole")]
+    public async Task<IActionResult> AddUserRole([FromBody] AddOrUpdateUserRoleRequest addOrUpdateUserRoleRequest)
+    {
+        try
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            await userService.AddUserRole(addOrUpdateUserRoleRequest.UserEmail, addOrUpdateUserRoleRequest.NewRole);
+
+            return Ok("Role added successfully");
+        }
+        catch (Exception e)
+        {
+            return BadRequest("Failed to add user role.");
+        }
     }
 }

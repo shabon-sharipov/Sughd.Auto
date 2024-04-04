@@ -1,62 +1,66 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Newtonsoft.Json;
 using Sughd.Auto.Application.Constants;
 using Sughd.Auto.Application.Interfaces.Auth;
+using Sughd.Auto.Application.RequestModels.Auth;
 using Sughd.Auto.Domain.Models;
 
 namespace Sughd.Auto.Application.Services.Auth;
 
-public class AuthService : IAuthService
+public class AuthService(UserManager<User> userManager, 
+        SignInManager<User> signInManager, 
+        ITokenService tokenService,
+        RoleManager<IdentityRole<int>> roleManager) : IAuthService
 {
-    private readonly UserManager<User> _userManager;
-    private readonly SignInManager<User> _signInManager;
-    private readonly ITokenService _tokenService;
-
-    public AuthService(UserManager<User> userManager, SignInManager<User> signInManager, ITokenService tokenService)
+    public async Task<string> Login(string userEmail, string password)
     {
-        _userManager = userManager;
-        _signInManager = signInManager;
-        _tokenService = tokenService;
-    }
-
-    public async Task<string> Login(string username, string password)
-    {
-        var user = await _userManager.FindByNameAsync(username);
+        var user = await userManager.FindByEmailAsync(userEmail);
 
         if (user == null)
             throw new InvalidOperationException("Invalid username or password.");
 
-        var result = await _signInManager.CheckPasswordSignInAsync(user, password, false);
+        var result = await signInManager.CheckPasswordSignInAsync(user, password, false);
 
         if (!result.Succeeded)
             throw new InvalidOperationException("Invalid username or password.");
 
-        return _tokenService.GenerateToken(user);
+        var userRoles = await userManager.GetRolesAsync(user);
+        
+        return tokenService.GenerateToken(user, JsonConvert.SerializeObject(userRoles));
     }
     
     public async Task Logout()
     {
-        await _signInManager.SignOutAsync();
+        await signInManager.SignOutAsync();
     }
 
     public async Task<string> RefreshToken(string token, string refreshToken)
     {
-        return await Task.FromResult( _tokenService.GenerateRefreshToken());
+        return await Task.FromResult( tokenService.GenerateRefreshToken());
     }
 
-    public async Task<User> Register(string username, string email, string password)
+    public async Task<User> Register(Register register)
     {
         var user = new User
         {
-            UserName = username,
-            Email = email
+            UserName = register.UserName,
+            Email = register.Email,
+            PhoneNumber = register.PhoneNumber
         };
 
-        var result = await _userManager.CreateAsync(user, password);
+        
+        var result = await userManager.CreateAsync(user, register.Password);
 
         if (!result.Succeeded)
             throw new InvalidOperationException("Failed to register user.");
 
-        await _userManager.AddToRolesAsync(user, new[] { Constant.CustomerRole });
+        if (!await roleManager.RoleExistsAsync(Constant.CustomerRole))
+        {
+           // _logger.LogError($"Role '{Constant.CustomerRole}' does not exist.");
+            throw new InvalidOperationException($"Role '{Constant.CustomerRole}' does not exist.");
+        }
+        
+        await userManager.AddToRolesAsync(user, new[] { Constant.CustomerRole });
 
         return user;
     }

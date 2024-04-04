@@ -22,7 +22,7 @@ builder.Services.AddDbContext<EFContext>(options =>
 var jwtSettings =builder.Configuration.GetSection("JwtSettings").Get<TokenService.JwtSettings>();
 builder.Services.AddSingleton(jwtSettings);
 
-builder.Services.AddIdentity<User, IdentityRole>(options =>
+builder.Services.AddIdentity<User, IdentityRole<int>>(options =>
     {
         options.Password.RequireDigit = true;
         options.Password.RequireLowercase = true;

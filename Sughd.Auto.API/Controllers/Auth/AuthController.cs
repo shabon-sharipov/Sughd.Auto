@@ -6,35 +6,28 @@ namespace Sughd.Auto.API.Controllers.Auth;
 
 [ApiController]
 [Route("api/[controller]")]
-public class AuthController : ControllerBase
+public class AuthController(IAuthService authService) : ControllerBase
 {
-    private readonly IAuthService _authService;
-
-    public AuthController(IAuthService authService)
-    {
-        _authService = authService;
-    }
-
     [HttpPost("login")]
     public async Task<IActionResult> Login(Login model)
     {
         try
         {
-            await _authService.Login(model.Username, model.Password);
-            return Ok();
+            var result = await authService.Login(model.UserEmail, model.Password);
+            return Ok(result);
         }
         catch (Exception e)
         {
             return BadRequest(e);
         }
     }
-    
+
     [HttpPost("register")]
-    public async Task<IActionResult> Register(Register model)
+    public async Task<IActionResult> Register(Register register)
     {
         try
         {
-            var user = await _authService.Register(model.Username, model.Email, model.Password);
+            var user = await authService.Register(register);
             return Ok(user);
         }
         catch (Exception e)
@@ -42,13 +35,13 @@ public class AuthController : ControllerBase
             return BadRequest(e);
         }
     }
-    
+
     [HttpPost("logout")]
     public async Task<IActionResult> Logout()
     {
         try
         {
-            await _authService.Logout();
+            await authService.Logout();
             return Ok();
         }
         catch (Exception e)

@@ -2,6 +2,7 @@
 using Sughd.Auto.Application.Constants;
 using Sughd.Auto.Application.Interfaces;
 using Sughd.Auto.Application.RequestModels;
+using Sughd.Auto.Application.RequestModels.Auth;
 using Sughd.Auto.Domain.Models;
 
 namespace Sughd.Auto.Application.Services;
@@ -39,23 +40,32 @@ public class UserService : IUserService
         return user;
     }
 
-    public async Task<User?> Create(CreateUserRequest createUserRequest)
+    public async Task UpdateUserRole(AddOrUpdateUserRoleRequest updateUserRoleRequest)
     {
-        var user = new User
-        {
-            UserName = createUserRequest.UserName,
-            Email = createUserRequest.Email,
-            PhoneNumber = createUserRequest.PhoneNumber
-        };
+        var user = await _userManager.FindByEmailAsync(updateUserRoleRequest.UserEmail);
 
-        var result = await _userManager.CreateAsync(user, createUserRequest.Password);
+        if (user == null)
+            throw new InvalidOperationException("User not found.");
 
-        if (result.Succeeded)
-        {
-            return null;
-        }
+        // Remove all existing roles
+        var existingRoles = await _userManager.GetRolesAsync(user);
 
-        await _userManager.AddToRoleAsync(user, Constant.CustomerRole);
-        return user;
+        var existingRole = existingRoles.FirstOrDefault(r => r == updateUserRoleRequest.OldRole);
+        
+        if (existingRole!= null)
+            await _userManager.RemoveFromRoleAsync(user, existingRole);
+        
+        await _userManager.AddToRoleAsync(user, updateUserRoleRequest.NewRole);
+    }
+
+    public async Task AddUserRole(string userEmail, string role)
+    {
+        var user = await _userManager.FindByEmailAsync(userEmail);
+
+        if (user == null)
+            throw new InvalidOperationException("User not found.");
+
+        // Add the new role
+        await _userManager.AddToRoleAsync(user, role);
     }
 }

@@ -6,11 +6,11 @@ namespace Sughd.Auto.Application.Services.Auth;
 
 public class RoleService : IRoleService
 {
-    private readonly UserManager<User> _userManager;
+    private readonly RoleManager<IdentityRole<int>> _roleManager;
 
-    public RoleService(UserManager<User> userManager)
+    public RoleService(RoleManager<IdentityRole<int>> roleManager)
     {
-        _userManager = userManager;
+        _roleManager = roleManager;
     }
 
     public Task<bool> IsInRole(string username, string roleName)
@@ -18,29 +18,41 @@ public class RoleService : IRoleService
         throw new NotImplementedException();
     }
 
-    public async Task UpdateUserRole(string username, string newRole)
+    public async Task UpdateRole(string roleName, string newRoleName)
     {
-        var user = await _userManager.FindByNameAsync(username);
+        var role = await _roleManager.FindByNameAsync(roleName);
+        if (role == null)
+        {
+            //_logger.LogError($"Role '{roleName}' not found.");
+            throw new InvalidOperationException($"Role '{roleName}' not found.");
+        }
 
-        if (user == null)
-            throw new InvalidOperationException("User not found.");
-
-        // Remove all existing roles
-        var existingRoles = await _userManager.GetRolesAsync(user);
-        await _userManager.RemoveFromRolesAsync(user, existingRoles.ToArray());
-
-        // Add the new role
-        await _userManager.AddToRoleAsync(user, newRole);
+        role.Name = newRoleName;
+        var result = await _roleManager.UpdateAsync(role);
+        if (!result.Succeeded)
+        {
+            var errors = string.Join("\n", result.Errors.Select(e => e.Description));
+           // _logger.LogError($"Failed to update role '{roleName}': {errors}");
+            throw new InvalidOperationException($"Failed to update role '{roleName}'.");
+        }
+        //_logger.LogInformation($"Role '{roleName}' updated to '{newRoleName}' successfully.");
     }
 
-    public async Task AddUserRole(string username, string role)
+    public async Task Add( string roleName)
     {
-        var user = await _userManager.FindByNameAsync(username);
+        if (await _roleManager.RoleExistsAsync(roleName))
+        {
+            //ToDO: Need write log
+            return;
+        }
 
-        if (user == null)
-            throw new InvalidOperationException("User not found.");
-
-        // Add the new role
-        await _userManager.AddToRoleAsync(user, role);
+        var newRole = new IdentityRole<int>(roleName);
+        var result = await _roleManager.CreateAsync(newRole);
+        if (!result.Succeeded)
+        {
+            var errors = string.Join("\n", result.Errors.Select(e => e.Description));
+            //_logger.LogError($"Failed to create role '{roleName}': {errors}");
+            throw new InvalidOperationException($"Failed to create role '{roleName}'.");
+        }
     }
 }

@@ -5,35 +5,33 @@ namespace Sughd.Auto.Application.RequestModels;
 
 public class CarRequestModel
 {
-    public string Name { get; set; }
+    public string VINCode { get; set; } = string.Empty;
 
-    public string VINCode { get; set; }
-
-    public string DateOfPablisher { get; set; }
+    public string DateOfPablisher { get; set; } = string.Empty;
 
     public decimal Price { get; set; }
 
-    public string EngineCapacity { get; set; }
+    public decimal EngineCapacity { get; set; }
 
     public decimal Mileage { get; set; }
 
-    public double IsRastamogeno { get; set; }
+    public bool IsRastamogeno { get; set; }
 
     public List<string> Images { get; set; }
 
     public bool IsActive { get; set; }
 
-    public FuelType FuelType { get; set; }
+    public string FuelType { get; set; } = string.Empty;
 
-    public Transmission Transmission { get; set; }
+    public string Transmission { get; set; } = string.Empty;
 
-    public CarBody CarBody { get; set; }
-    
-    public long CustomerId { get; set; }
+    public string CarBody { get; set; } = string.Empty;
+
+    public int UserId { get; set; }
     
     public long MarkaId { get; set; }
-    
+
     public long ModelId { get; set; }
-    
-    public string Color { get; set; }
+
+    public string Color { get; set; } = string.Empty;
 }
