@@ -21,15 +21,15 @@ public class Car : EntityBase
 
     public bool IsActive { get; set; }
 
-    public FuelType FuelType { get; set; }
+    public string FuelType { get; set; } = string.Empty;
 
-    public Transmission Transmission { get; set; }
+    public string Transmission { get; set; } = string.Empty;
 
-    public CarBody CarBody { get; set; }
+    public string CarBody { get; set; } = string.Empty;
 
-    public virtual Customer Customer { get; set; }
-    public long CustomerId { get; set; }
-
+    public User User { get; set; }
+    public int UserId { get; set; }
+    
     public virtual Marka Marka { get; set; }
     public long MarkaId { get; set; }
 

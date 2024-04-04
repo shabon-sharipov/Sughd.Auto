@@ -2,14 +2,11 @@
 
 public class Person : EntityBase
 {
-    public string FirstName { get; set; }
+    public string FirstName { get; set; } = string.Empty;
 
-    public string LastName { get; set; }
+    public string LastName { get; set; } = string.Empty;
 
-    public string PhoneNamber { get; set; }
+    public string PhoneNumber { get; set; } = string.Empty;
 
-    //TODO need use enum
-    public string Status { get; set; }
-
-    public string DateOfBirthday { get; set; }
+    public string Address { get; set; } = string.Empty;
 }
