@@ -1,6 +1,7 @@
 ﻿using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using Sughd.Auto.Application.Interfaces.Repositories;
+using Sughd.Auto.Application.RequestModels;
 using Sughd.Auto.Domain.Models;
 using Sughd.Auto.Infrastructure.DataBase;
 
@@ -12,35 +13,28 @@ public class CarRepository : Repository<Car>, ICarRepository
     {
     }
 
-    public async Task<List<Car>> Search(Dictionary<string, object> filter)
+    public async Task<List<Car>> Search(SearchCarRequestModel searchCarRequestModel)
     {
-        IQueryable<Car> query = _dbSet;
+        var cars = _dbSet.Where(c => c.IsActive == true
+                                     && (searchCarRequestModel.FuelType == null ||
+                                         c.FuelType == searchCarRequestModel.FuelType)
+                                     && (searchCarRequestModel.CarBody == null ||
+                                         c.CarBody == searchCarRequestModel.CarBody)
+                                     && (searchCarRequestModel.ModelId == null ||
+                                         c.ModelId == searchCarRequestModel.ModelId)
+                                     && (searchCarRequestModel.Transmission == null ||
+                                         c.Transmission == searchCarRequestModel.Transmission)
+                                     && (searchCarRequestModel.IsRastamogeno == null ||
+                                         c.IsRastamogeno == searchCarRequestModel.IsRastamogeno)
+                                     && (searchCarRequestModel.DateOfPablisher == null ||
+                                         c.DateOfPablisher == searchCarRequestModel.DateOfPablisher)
+                                     && (searchCarRequestModel.MarkaId == null ||
+                                         c.MarkaId == searchCarRequestModel.MarkaId)
+                                     && (searchCarRequestModel.Color == null || c.Color == searchCarRequestModel.Color)
+                                     && (searchCarRequestModel.PriceFrom == null ||
+                                         c.Price >= searchCarRequestModel.PriceFrom));
 
-        // Build dynamic expression tree
-        Expression<Func<Car, bool>> predicate = PredicateBuilder.True<Car>();
-        foreach (var kvp in filter)
-        {
-            string propertyName = kvp.Key;
-            object propertyValue = kvp.Value;
-
-            // Check if the property exists in the Car entity
-            if (typeof(Car).GetProperty(propertyName) != null)
-            {
-                // Create expression for property comparison
-                var property = Expression.Property(Expression.Parameter(typeof(Car), "x"), propertyName);
-                var value = Expression.Constant(propertyValue);
-                var equals = Expression.Equal(property, value);
-                var lambda = Expression.Lambda<Func<Car, bool>>(equals, Expression.Parameter(typeof(Car), "x"));
-
-                // Combine expressions using AND
-                predicate = predicate.And(lambda);
-            }
-        }
-
-        // Apply filter using the combined predicate
-        query = query.Where(predicate);
-
-        return await query.ToListAsync();
+        return await cars.ToListAsync();
     }
 }
 
