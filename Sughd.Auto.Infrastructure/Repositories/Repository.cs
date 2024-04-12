@@ -6,7 +6,7 @@ namespace Sughd.Auto.Infrastructure.Repositories;
 
 public abstract class Repository<T> where T : EntityBase
 {
-    private readonly DbSet<T> _dbSet;
+    protected readonly DbSet<T> _dbSet;
     private readonly EFContext _context;
 
     public Repository(EFContext context)

@@ -1,9 +1,9 @@
 ﻿using Sughd.Auto.Application.RequestModels;
 using Sughd.Auto.Domain.Models;
 
-namespace Sughd.Auto.Application.Interfaces.Repositories;
+namespace Sughd.Auto.Application.Interfaces;
 
-public interface ICarRepository : IRepository<Car>
+public interface ISearchService
 {
     Task<List<Car>> Search(SearchCarRequestModel searchCarRequestModel);
 }

@@ -17,7 +17,7 @@ public class Car : EntityBase
 
     public double IsRastamogeno { get; set; }
 
-    public List<string> Images { get; set; }
+    public virtual List<string> Images { get; set; }
 
     public bool IsActive { get; set; }
 
@@ -27,7 +27,7 @@ public class Car : EntityBase
 
     public string CarBody { get; set; } = string.Empty;
 
-    public User User { get; set; }
+    public virtual User User { get; set; }
     public int UserId { get; set; }
     
     public virtual Marka Marka { get; set; }
