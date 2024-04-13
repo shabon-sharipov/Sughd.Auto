@@ -59,4 +59,10 @@ public class CarModelService : ICarModelService
         await _modelRepository.SaveChangesAsync(cancellationToken);
         return _mapper.Map<CarModelResponseModel>(model);
     }
+
+    public async Task<List<CarModelResponseModel>> GetByMarkaId(long id)
+    {
+        var models = await _modelRepository.GetByMarkaId(id);
+        return _mapper.Map<List<CarModelResponseModel>>(models);
+    }
 }

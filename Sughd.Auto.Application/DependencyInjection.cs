@@ -2,6 +2,7 @@
 using Sughd.Auto.Application.Automapper;
 using Sughd.Auto.Application.Interfaces;
 using Sughd.Auto.Application.Interfaces.Auth;
+using Sughd.Auto.Application.Interfaces.Repositories;
 using Sughd.Auto.Application.Services;
 using Sughd.Auto.Application.Services.Auth;
 

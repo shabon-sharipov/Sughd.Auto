@@ -21,4 +21,11 @@ public class SearchController : ControllerBase
         var s = await _searchController.Search(searchCarRequestModel);
         return Ok(s);
     }
+    
+    [HttpGet("/SearchByUserName")]
+    public async Task<IActionResult> SearchByUserName(string name)
+    {
+        var s = await _searchController.SearchByUserName(name);
+        return Ok(s);
+    }
 }

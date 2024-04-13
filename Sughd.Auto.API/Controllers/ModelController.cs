@@ -21,9 +21,16 @@ public class ModelController : ControllerBase
         var result = await _carModelService.GetById(id, CancellationToken.None);
         return Ok(result);
     }
+    
+    [HttpGet("GetByMarkaId")]
+    public async Task<IActionResult> GetByMarkaId(long markaId)
+    {
+        var result = await _carModelService.GetByMarkaId(markaId);
+        return Ok(result);
+    }
 
     [HttpGet("GetAll")]
-    public async Task<IActionResult> GetAll([FromRoute] int pageSize, [FromRoute] int offSet)
+    public async Task<IActionResult> GetAll([FromQuery] int pageSize, [FromQuery] int offSet)
     {
         var result = await _carModelService.Get(pageSize, offSet, CancellationToken.None);
         return Ok(result);

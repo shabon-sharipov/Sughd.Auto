@@ -6,4 +6,5 @@ namespace Sughd.Auto.Application.Interfaces;
 
 public interface ICarModelService : IBaseService<CarModelRequestModel, CarModelResponseModel>
 {
+    Task<List<CarModelResponseModel>> GetByMarkaId(long id);
 }

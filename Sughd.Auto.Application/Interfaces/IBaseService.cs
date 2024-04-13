@@ -9,6 +9,6 @@ public interface IBaseService<TRequest, TResponse>
     Task<TResponse> Update(long id, TRequest entity, CancellationToken cancellationToken);
 
     Task<List<TResponse>> Get(int pageSize, int pageNumber, CancellationToken cancellationToken);
-
+  
     Task<TResponse> Delete(long id, CancellationToken cancellationToken);
 }

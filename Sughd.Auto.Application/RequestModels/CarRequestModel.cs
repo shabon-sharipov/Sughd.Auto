@@ -1,7 +1,4 @@
-﻿using Sughd.Auto.Domain.Enum;
-using Sughd.Auto.Domain.Models;
-
-namespace Sughd.Auto.Application.RequestModels;
+﻿namespace Sughd.Auto.Application.RequestModels;
 
 public class CarRequestModel
 {
@@ -20,6 +17,7 @@ public class CarRequestModel
     public List<string> Images { get; set; }
 
     public bool IsActive { get; set; }
+    public string CarNumber { get; set; } = string.Empty;
 
     public string FuelType { get; set; } = string.Empty;
 

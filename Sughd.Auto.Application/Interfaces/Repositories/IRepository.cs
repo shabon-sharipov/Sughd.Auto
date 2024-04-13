@@ -2,7 +2,7 @@
 
 namespace Sughd.Auto.Application.Interfaces.Repositories;
 
-public interface IRepository<TEntity> where TEntity : EntityBase
+public interface IRepository<TEntity>
 {
     IQueryable<TEntity> GetAll(int pageSize, int pageNumber, CancellationToken cancellation);
     Task<IQueryable<TEntity>> GetAllAsync(int pageSize, int pageNumber, CancellationToken cancellation);

@@ -11,5 +11,6 @@ public static class DependencyInjection
         services.AddScoped<ICarMarkaRepository, CarMarkaRepository>();
         services.AddScoped<ICarModelRepository, CarModelRepository>();
         services.AddScoped<ICarRepository, CarRepository>();
+        services.AddScoped<IUserRepository, UserRepository>();
     }
 }

@@ -6,4 +6,5 @@ namespace Sughd.Auto.Application.Interfaces;
 
 public interface ICarMarkaService : IBaseService<CarMarkaRequestModel, CarMarkaResponsModel>
 {
+    
 }

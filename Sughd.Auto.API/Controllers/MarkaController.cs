@@ -23,7 +23,7 @@ public class MarkaController : ControllerBase
     }
 
     [HttpGet("GetAll")]
-    public async Task<IActionResult> GetAll([FromRoute] int pageSize, [FromRoute] int offSet)
+    public async Task<IActionResult> GetAll([FromQuery] int offSet = 0, [FromQuery] int pageSize = 100)
     {
         var result = await _markaService.Get(pageSize, offSet, CancellationToken.None);
         return Ok(result);

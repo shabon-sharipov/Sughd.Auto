@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Sughd.Auto.Application.Interfaces;
 using Sughd.Auto.Application.RequestModels;
@@ -25,14 +26,14 @@ public class CarController : ControllerBase
     }
 
     [HttpGet("GetAll")]
-    public async Task<IActionResult> GetAll([FromRoute] int pageSize, [FromRoute] int offSet)
+    public async Task<IActionResult> GetAll([FromQuery] int pageSize, [FromQuery] int offSet)
     {
         var result = await _carService.Get(pageSize, offSet, CancellationToken.None);
         return Ok(result);
     }
 
     [HttpPost]
-    public async Task<IActionResult> Post(CarRequestModel carRequestModel)
+    public async Task<IActionResult> Post([FromBody]CarRequestModel carRequestModel)
     {
         var result = await _carService.Create(carRequestModel, CancellationToken.None);
         return Ok(result);

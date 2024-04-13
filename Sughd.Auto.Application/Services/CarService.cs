@@ -48,13 +48,18 @@ public class CarService : ICarService
     public async Task<List<CarResponseModel>> Get(int pageSize, int pageNumber, CancellationToken cancellationToken)
     {
         var result = await _carRepository.GetAllAsync(pageSize, pageNumber, cancellationToken);
-        var car = _mapper.Map<List<CarResponseModel>>(result);
+        var car = _mapper.Map<List<CarResponseModel>>(result.ToList());
         return car;
     }
-
+    
     public async Task<CarResponseModel> Delete(long id, CancellationToken cancellationToken)
     {
         var car = await _carRepository.FindAsync(id, cancellationToken);
+        if (car == null)
+        {
+            //need add log
+            return new CarResponseModel();
+        }
         _carRepository.Delete(car);
         await _carRepository.SaveChangesAsync(cancellationToken);
         return _mapper.Map<CarResponseModel>(car);

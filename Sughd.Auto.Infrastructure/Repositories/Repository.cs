@@ -4,7 +4,7 @@ using Sughd.Auto.Infrastructure.DataBase;
 
 namespace Sughd.Auto.Infrastructure.Repositories;
 
-public abstract class Repository<T> where T : EntityBase
+public abstract class Repository<T> where T : class // need find how to Use EntityBase also
 {
     protected readonly DbSet<T> _dbSet;
     private readonly EFContext _context;

@@ -7,6 +7,4 @@ public class CarMarkaResponsModel
     public long Id { get; set; }
     
     public string Name { get; set; }
-
-    public List<Model> Model { get; set; }
 }

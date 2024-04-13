@@ -12,7 +12,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddApplicationLayer();
 builder.Services.AddInfrastructureLayer();
-
 builder.Services.AddDbContext<EFContext>(options =>
 {
     builder.Configuration.GetConnectionString("DefaultConnection");
@@ -21,7 +20,16 @@ builder.Services.AddDbContext<EFContext>(options =>
 
 var jwtSettings =builder.Configuration.GetSection("JwtSettings").Get<TokenService.JwtSettings>();
 builder.Services.AddSingleton(jwtSettings);
-
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin",
+        builder =>
+        {
+            builder.WithOrigins("https://localhost:7077")
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+});
 builder.Services.AddIdentity<User, IdentityRole<int>>(options =>
     {
         options.Password.RequireDigit = true;
@@ -40,10 +48,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("AllowSpecificOrigin");
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-
+    
 app.MapControllers();
 
 app.Run();
