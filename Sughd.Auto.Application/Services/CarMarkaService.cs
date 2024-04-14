@@ -39,7 +39,6 @@ public class CarMarkaService : ICarMarkaService
         var marka = await _markaRepository.FindAsync(id, cancellationToken);
 
         var result = _mapper.Map(entity, marka);
-        await _markaRepository.AddAsync(result, cancellationToken);
         await _markaRepository.SaveChangesAsync(cancellationToken);
 
         return _mapper.Map<CarMarkaResponsModel>(result);

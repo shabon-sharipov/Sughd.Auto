@@ -18,8 +18,8 @@ public class AutoMapperConfiguration : Profile
     {
         CreateMap<CarRequestModel, Car>();
         CreateMap<Car, CarResponseModel>()
-            .ForMember(c 
-                => c.UserName, o 
+            .ForMember(c
+                => c.UserName, o
                 => o.MapFrom(c => c.User.UserName));
     }
 

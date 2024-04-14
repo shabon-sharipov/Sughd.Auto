@@ -21,4 +21,11 @@ public class CarMarkaRepository : Repository<Marka>, ICarMarkaRepository
 
         return test;
     }
+
+    public async Task<List<Marka>> SearchByMarkaName(string markaName)
+    {
+        var userNames = _dbSet.Where(m => m.Name.StartsWith(markaName));
+
+        return (await userNames.ToListAsync())!;
+    }
 }

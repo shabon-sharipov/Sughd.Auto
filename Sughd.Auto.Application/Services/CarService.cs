@@ -39,7 +39,6 @@ public class CarService : ICarService
         var car = await _carRepository.FindAsync(id, cancellationToken);
 
         var result = _mapper.Map(entity, car);
-        await _carRepository.AddAsync(result, cancellationToken);
         await _carRepository.SaveChangesAsync(cancellationToken);
 
         return _mapper.Map<CarResponseModel>(result);

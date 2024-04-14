@@ -18,14 +18,21 @@ public class SearchController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Search(SearchCarRequestModel searchCarRequestModel)
     {
-        var s = await _searchController.Search(searchCarRequestModel);
-        return Ok(s);
+        var cars = await _searchController.Search(searchCarRequestModel);
+        return Ok(cars);
     }
     
-    [HttpGet("/SearchByUserName")]
-    public async Task<IActionResult> SearchByUserName(string name)
+    [HttpGet("/SearchByUserPhoneNumber")]
+    public async Task<IActionResult> SearchByUserName(string phoneNumber)
     {
-        var s = await _searchController.SearchByUserName(name);
-        return Ok(s);
+        var userName = await _searchController.SearchByUserName(phoneNumber);
+        return Ok(userName);
+    }
+    
+    [HttpGet("/SearchByMarkaName")]
+    public async Task<IActionResult> SearchByMarkaName(string markaName)
+    {
+        var markaNames = await _searchController.SearchByMarkaName(markaName);
+        return Ok(markaNames);
     }
 }

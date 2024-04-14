@@ -39,7 +39,7 @@ public class CarController : ControllerBase
         return Ok(result);
     }
 
-    [HttpPut]
+    [HttpPut]               
     public async Task<IActionResult> Update(long id, CarRequestModel carRequestModel)
     {
         var result = await _carService.Update(id, carRequestModel, CancellationToken.None);
