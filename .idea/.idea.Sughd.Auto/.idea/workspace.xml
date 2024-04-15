@@ -10,12 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99387cd5-639a-4e04-ab76-153ed889bc08" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Sughd.Auto.Application/RequestModels/SearchCarRequestModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sughd.Auto.Application/ResponseModels/UserResponseModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Sughd.Auto/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Sughd.Auto/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sughd.Auto.API/Controllers/SearchController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.API/Controllers/SearchController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/Interfaces/ISearchService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/Interfaces/ISearchService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/Automapper/AutoMapperConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/Automapper/AutoMapperConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/Interfaces/IUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/Interfaces/IUserService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/Interfaces/Repositories/ICarRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/Interfaces/Repositories/ICarRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/Services/SearchService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/Services/SearchService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/ResponseModels/CarModelResponseModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/ResponseModels/CarModelResponseModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/Services/CarModelService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/Services/CarModelService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/Services/UserService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sughd.Auto.Infrastructure/Repositories/CarRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Infrastructure/Repositories/CarRepository.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,11 +45,14 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bdd41ecac0e84b209640a113d5ad6b251b918/57/754d3872/WebApplicationBuilder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c96574d8fb154948b08619f307ab3049228a0/34/b0227b2d/ServiceProviderServiceExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ec55df3594154f728a9c9b0e5753a310b0a0/5b/40fab553/IdentityUser.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ec55df3594154f728a9c9b0e5753a310b0a0/b8/f784fd9d/IdentityUser`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f1aee326024147e49348be4f2e96c1d81fc5a0/3d/70734615/IEntityTypeConfiguration`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fb4d77b206114b509c078b78f8ef7d8c46a0/e7/9b0e4bb3/ServiceProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bd1d5c50194fea68ff3559c160230b0ab50f5acf4ce3061bffd6d62958e2182/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/shabo/OneDrive/Desktop/Sughd.Auto/Sughd.Auto.API/Controllers/SearchController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/shabo/OneDrive/Desktop/Sughd.Auto/Sughd.Auto.Application/Services/SearchService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/shabo/OneDrive/Desktop/Sughd.Auto/Sughd.Auto.Application/Automapper/AutoMapperConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/shabo/OneDrive/Desktop/Sughd.Auto/Sughd.Auto.Application/Interfaces/Repositories/ICarRepository.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/shabo/OneDrive/Desktop/Sughd.Auto/Sughd.Auto.Application/ResponseModels/CarModelResponseModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/shabo/OneDrive/Desktop/Sughd.Auto/Sughd.Auto.Application/Services/CarModelService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/shabo/OneDrive/Desktop/Sughd.Auto/Sughd.Auto.Infrastructure/Repositories/CarRepository.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="false" />
@@ -65,7 +70,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Search__&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
@@ -83,7 +88,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.Sughd.Auto.API: http">
+  <component name="RunManager" selected=".NET Launch Settings Profile.Sughd.Auto.API: https">
     <configuration name="Sughd.Auto.API: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Sughd.Auto.API/Sughd.Auto.API.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
@@ -139,6 +144,7 @@
         <item itemvalue=".NET Launch Settings Profile.Sughd.Auto.API: https" />
         <item itemvalue=".NET Launch Settings Profile.Sughd.Auto.API: https" />
         <item itemvalue=".NET Launch Settings Profile.Sughd.Auto.API: https" />
+        <item itemvalue=".NET Launch Settings Profile.Sughd.Auto.API: https" />
       </list>
     </recent_temporary>
   </component>
@@ -159,6 +165,10 @@
       <workItem from="1712809054713" duration="3570000" />
       <workItem from="1712852065576" duration="588000" />
       <workItem from="1712891680831" duration="3079000" />
+      <workItem from="1712986456887" duration="271000" />
+      <workItem from="1712986745617" duration="842000" />
+      <workItem from="1713077771045" duration="8975000" />
+      <workItem from="1713164286111" duration="4729000" />
     </task>
     <task id="LOCAL-00001" summary="Implemented search">
       <option name="closed" value="true" />
@@ -302,30 +312,82 @@
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Sughd.Auto.Application/Services/CarService.cs</url>
-          <line>23</line>
-          <properties documentPath="C:\Users\shabo\OneDrive\Desktop\Sughd.Auto\Sughd.Auto.Application\Services\CarService.cs" initialLine="23" containingFunctionPresentation="Method 'Create'">
+          <url>file://$PROJECT_DIR$/Sughd.Auto.API/Controllers/CarController.cs</url>
+          <line>37</line>
+          <properties documentPath="C:\Users\shabo\OneDrive\Desktop\Sughd.Auto\Sughd.Auto.API\Controllers\CarController.cs" initialLine="36" containingFunctionPresentation="Method 'Post'">
             <startOffsets>
-              <option value="723" />
+              <option value="1051" />
             </startOffsets>
             <endOffsets>
-              <option value="777" />
+              <option value="1130" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Sughd.Auto.Infrastructure/Repositories/CarRepository.cs</url>
-          <line>17</line>
-          <properties documentPath="C:\Users\shabo\OneDrive\Desktop\Sughd.Auto\Sughd.Auto.Infrastructure\Repositories\CarRepository.cs" initialLine="16" containingFunctionPresentation="Method 'Search'">
+          <url>file://$PROJECT_DIR$/Sughd.Auto.API/Controllers/CarController.cs</url>
+          <line>30</line>
+          <properties documentPath="C:\Users\shabo\OneDrive\Desktop\Sughd.Auto\Sughd.Auto.API\Controllers\CarController.cs" initialLine="30" containingFunctionPresentation="Method 'GetAll'">
             <startOffsets>
-              <option value="527" />
+              <option value="825" />
             </startOffsets>
             <endOffsets>
-              <option value="558" />
+              <option value="902" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="27" />
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Sughd.Auto.API/Controllers/ModelController.cs</url>
+          <line>34</line>
+          <properties documentPath="C:\Users\shabo\OneDrive\Desktop\Sughd.Auto\Sughd.Auto.API\Controllers\ModelController.cs" initialLine="34" containingFunctionPresentation="Method 'GetAll'">
+            <startOffsets>
+              <option value="957" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1039" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Sughd.Auto.Application/Services/CarModelService.cs</url>
+          <line>54</line>
+          <properties documentPath="C:\Users\shabo\OneDrive\Desktop\Sughd.Auto\Sughd.Auto.Application\Services\CarModelService.cs" initialLine="54" containingFunctionPresentation="Method 'Get'">
+            <startOffsets>
+              <option value="1951" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1989" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Sughd.Auto.API/Controllers/ModelController.cs</url>
+          <line>48</line>
+          <properties documentPath="C:\Users\shabo\OneDrive\Desktop\Sughd.Auto\Sughd.Auto.API\Controllers\ModelController.cs" initialLine="48" containingFunctionPresentation="Method 'Update'">
+            <startOffsets>
+              <option value="1451" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1536" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Sughd.Auto.API/Controllers/ModelController.cs</url>
+          <line>41</line>
+          <properties documentPath="C:\Users\shabo\OneDrive\Desktop\Sughd.Auto\Sughd.Auto.API\Controllers\ModelController.cs" initialLine="41" containingFunctionPresentation="Method 'Post'">
+            <startOffsets>
+              <option value="1219" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1300" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

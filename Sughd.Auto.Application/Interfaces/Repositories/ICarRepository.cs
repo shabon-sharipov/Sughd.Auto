@@ -6,4 +6,5 @@ namespace Sughd.Auto.Application.Interfaces.Repositories;
 public interface ICarRepository : IRepository<Car>
 {
     Task<List<Car>> Search(SearchCarRequestModel searchCarRequestModel);
+    Task<IQueryable<Car>> GetCarsIfIsActive(int pageSize, int pageNumber);
 }

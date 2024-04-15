@@ -26,7 +26,10 @@ public class AutoMapperConfiguration : Profile
     private void MapModel()
     {
         CreateMap<CarModelRequestModel, Model>();
-        CreateMap<Model, CarModelResponseModel>();
+        CreateMap<Model, CarModelResponseModel>()
+            .ForMember(c
+                => c.MarkaName, o
+                => o.MapFrom(c => c.Marka.Name));
     }
     
     private void MapMarka()

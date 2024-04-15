@@ -39,16 +39,30 @@ public class CarModelService : ICarModelService
         var model = await _modelRepository.FindAsync(id, cancellationToken);
 
         var result = _mapper.Map(entity, model);
-        await _modelRepository.AddAsync(result, cancellationToken);
         await _modelRepository.SaveChangesAsync(cancellationToken);
 
         return _mapper.Map<CarModelResponseModel>(result);
     }
 
-    public async Task<List<CarModelResponseModel>> Get(int pageSize, int pageNumber, CancellationToken cancellationToken)
+    public async Task<List<CarModelResponseModel>> Get(int pageSize, int pageNumber,
+        CancellationToken cancellationToken)
     {
         var result = await _modelRepository.GetAllAsync(pageSize, pageNumber, cancellationToken);
-        var models = _mapper.Map<List<CarModelResponseModel>>(result);
+
+        var models = new List<CarModelResponseModel>();
+
+        foreach (var model in result.ToList())
+        {
+            models.Add(new CarModelResponseModel
+            {
+                Id = model.Id,
+                Name = model.Name,
+                MarkaId = model.MarkaId,
+                MarkaName = model.Marka.Name
+            });
+        }
+
+        // var models = _mapper.Map<List<CarModelResponseModel>>(result);
         return models;
     }
 

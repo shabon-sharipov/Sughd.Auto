@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using Sughd.Auto.Application.Constants;
 using Sughd.Auto.Application.Interfaces;
-using Sughd.Auto.Application.RequestModels;
 using Sughd.Auto.Application.RequestModels.Auth;
+using Sughd.Auto.Application.ResponseModels;
 using Sughd.Auto.Domain.Models;
 
 namespace Sughd.Auto.Application.Services;
@@ -67,5 +66,10 @@ public class UserService : IUserService
 
         // Add the new role
         await _userManager.AddToRoleAsync(user, role);
+    }
+
+    public Task<List<UserResponseModel>> GetAllUsers()
+    {
+        throw new NotImplementedException();
     }
 }
