@@ -7,7 +7,7 @@ using Sughd.Auto.Domain.Models;
 
 namespace Sughd.Auto.Infrastructure.DataBase;
 
-public class EFContext : IdentityDbContext<User, IdentityRole<int>, int>
+public class EFContext : DbContext
 {
     public EFContext(DbContextOptions<EFContext> dbContextOptions) : base(dbContextOptions)
     {

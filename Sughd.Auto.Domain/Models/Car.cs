@@ -1,5 +1,5 @@
 ﻿using Sughd.Auto.Domain.Abstract;
-using Sughd.Auto.Domain.Enum;
+using Sughd.Auto.Domain.AuthModel;
 
 namespace Sughd.Auto.Domain.Models;
 

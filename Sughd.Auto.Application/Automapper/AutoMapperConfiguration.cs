@@ -20,7 +20,7 @@ public class AutoMapperConfiguration : Profile
         CreateMap<Car, CarResponseModel>()
             .ForMember(c
                 => c.UserName, o
-                => o.MapFrom(c => c.User.UserName));
+                => o.MapFrom(c => c.User.FulName));
     }
 
     private void MapModel()

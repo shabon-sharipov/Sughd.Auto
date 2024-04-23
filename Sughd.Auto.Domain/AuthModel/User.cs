@@ -1,21 +1,16 @@
-﻿using Sughd.Auto.Domain.AuthModel;
-using Sughd.Auto.Domain.Models;
+﻿using Sughd.Auto.Domain.Abstract;
 
-namespace Sughd.Auto.Application.ResponseModels;
+namespace Sughd.Auto.Domain.AuthModel;
 
-public class UserResponseModel : User
+public class User : EntityBase
 {
-    public long Id { get; set; }
-    
     public string FulName { get; set; } = string.Empty;
-
+    
     public string PhoneNumber { get; set; } = string.Empty;
-
+    
     public string Email { get; set; } = string.Empty;
-
+    
     public string Password { get; set; } = string.Empty;
-
+    
     public List<Role> Role { get; set; }
-
-    public List<CarResponseModel> Cars { get; set; } = new();
 }
