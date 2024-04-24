@@ -4,13 +4,14 @@ using Sughd.Auto.Domain.AuthModel;
 
 namespace Sughd.Auto.Infrastructure.DataBase.Configuration;
 
-public class UserConfiguration : IEntityTypeConfiguration<User>
+public class UserRoleConfiguration : IEntityTypeConfiguration<UserRole>
 {
-    public void Configure(EntityTypeBuilder<User> builder)
+    public void Configure(EntityTypeBuilder<UserRole> builder)
     {
         builder.HasKey(u => u.Id);
         builder.Property(c => c.Id).ValueGeneratedOnAdd();
-        builder.HasMany(u => u.Roles)
-            .WithMany(r => r.Users);
+
+        builder.HasOne(r => r.Role).WithMany().HasForeignKey(r => r.RoleId);
+        builder.HasOne(r => r.User).WithMany().HasForeignKey(r => r.UserId);
     }
 }

@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Sughd.Auto.Domain.Enum;
+using Sughd.Auto.Application.Constants;
 using Sughd.Auto.Domain.Models;
 
 namespace Sughd.Auto.API.Controllers;
 
-[Authorize]
 [ApiController]
 [Route("[controller]")]
 public class CarDetailsController : ControllerBase
@@ -53,11 +52,11 @@ public class CarDetailsController : ControllerBase
 
         var dic = new Dictionary<string, object>()
         {
-            {nameof(Car.CarBody), carBody},
-            {nameof(Car.FuelType), fuelTypes},
-            {nameof(Car.Transmission), transmission}
+            { nameof(Car.CarBody), carBody },
+            { nameof(Car.FuelType), fuelTypes },
+            { nameof(Car.Transmission), transmission }
         };
-        
+
         return Ok(dic);
     }
 }

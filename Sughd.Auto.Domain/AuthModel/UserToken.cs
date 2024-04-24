@@ -6,5 +6,5 @@ public class UserToken : EntityBase
 {
     public long UserId { get; set; }
     
-    public long Name { get; set; }
+    public string Name { get; set; }
 }
