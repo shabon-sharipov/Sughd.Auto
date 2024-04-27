@@ -15,7 +15,6 @@ public interface IRoleService
     Task<List<string>> AddRolesAsync(string[] roles);
 
     Task<bool> AddUserRoleAsync(string userEmail, List<long> roleIds);
-
 }
 
 public class RoleService : IRoleService

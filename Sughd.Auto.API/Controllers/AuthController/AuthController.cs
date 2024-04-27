@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Sughd.Auto.Application.AuthServices;
-using Sughd.Auto.Application.RequestModels.Auth;
+using Sughd.Auto.Application.AuthServices.RequestModels;
 
 namespace Sughd.Auto.API.Controllers.AuthController;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("[controller]")]
 public class AuthController(IAuthService authService) : ControllerBase
 {
     [HttpPost("login")]
@@ -23,7 +23,7 @@ public class AuthController(IAuthService authService) : ControllerBase
     }
 
     [HttpPost("register")]
-    public async Task<IActionResult> Register(Register register)
+    public async Task<IActionResult> Register(UserRegisterRequestModel register)
     {
         try
         {

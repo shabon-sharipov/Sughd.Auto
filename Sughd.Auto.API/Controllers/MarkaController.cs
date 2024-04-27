@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Sughd.Auto.Application.Interfaces;
 using Sughd.Auto.Application.RequestModels;
 
 namespace Sughd.Auto.API.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("[controller]")]
 public class MarkaController : ControllerBase
@@ -15,6 +17,7 @@ public class MarkaController : ControllerBase
         _markaService = markaService;
     }
 
+    [AllowAnonymous]
     [HttpGet("GetById")]
     public async Task<IActionResult> GetById(long id)
     {
@@ -22,6 +25,7 @@ public class MarkaController : ControllerBase
         return Ok(result);
     }
 
+    [AllowAnonymous]
     [HttpGet("GetAll")]
     public async Task<IActionResult> GetAll([FromQuery] int offSet = 0, [FromQuery] int pageSize = 100)
     {

@@ -1,9 +1,9 @@
-﻿using Sughd.Auto.Domain.Abstract;
-using Sughd.Auto.Domain.Models;
+﻿using Sughd.Auto.Application.AuthServices.ResponseModels;
+using Sughd.Auto.Domain.AuthModel;
 
-namespace Sughd.Auto.Domain.AuthModel;
+namespace Sughd.Auto.Application.RequestModels;
 
-public class User : EntityBase
+public class UserUpdateRequestModel
 {
     public string UserName { get; set; } = string.Empty;
     
@@ -15,7 +15,5 @@ public class User : EntityBase
 
     public string RefreshToken { get; set; }
 
-    public virtual List<Role> Roles { get; set; } = [];
-    
-    public virtual List<FavoriteUserCar> FavoriteUserCars { get; set; } = [];
+    public List<long> RoleIds { get; set; }
 }

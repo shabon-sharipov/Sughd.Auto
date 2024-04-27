@@ -7,7 +7,7 @@ using Sughd.Auto.Application.Constants;
 
 namespace Sughd.Auto.API.Controllers.AuthController;
 
-[Route("api/[controller]")]
+[Route("[controller]")]
 [ApiController]
 public class RoleController : ControllerBase
 {
@@ -26,15 +26,14 @@ public class RoleController : ControllerBase
         return Ok(list);
     }
 
-    [Authorize(Roles = $"{Constant.AdminRole}, {Constant.WorkerRole}")]
+    [Authorize(Roles = $"{Constant.AdminRole}")]
     [HttpGet("GetUserRole")]
     public async Task<IActionResult> GetUserRole(string userEmail)
     {
         var userClaims = await _roleService.GetUserRolesAsync(userEmail);
         return Ok(userClaims);
-
     }
-
+    
     //[Authorize(Roles = "admin")]
     [HttpPost("addRoles")]
     public async Task<ActionResult> AddRole(string[] roles)

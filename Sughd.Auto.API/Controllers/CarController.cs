@@ -1,12 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Sughd.Auto.Application.Interfaces;
 using Sughd.Auto.Application.RequestModels;
-using Sughd.Auto.Infrastructure.DataBase;
 
 namespace Sughd.Auto.API.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("[controller]")]
 public class CarController : ControllerBase
@@ -18,6 +17,7 @@ public class CarController : ControllerBase
         _carService = carService;
     }
 
+    [AllowAnonymous]
     [HttpGet("GetById")]
     public async Task<IActionResult> GetById(long id)
     {
@@ -25,6 +25,7 @@ public class CarController : ControllerBase
         return Ok(result);
     }
 
+    [AllowAnonymous]
     [HttpGet("GetAll")]
     public async Task<IActionResult> GetAll([FromQuery] int pageSize, [FromQuery] int offSet)
     {

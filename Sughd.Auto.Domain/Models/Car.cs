@@ -30,7 +30,7 @@ public class Car : EntityBase
     public string CarBody { get; set; } = string.Empty;
 
     public virtual User User { get; set; }
-    public int UserId { get; set; }
+    public long UserId { get; set; }
     
     public virtual Marka Marka { get; set; }
     public long MarkaId { get; set; }

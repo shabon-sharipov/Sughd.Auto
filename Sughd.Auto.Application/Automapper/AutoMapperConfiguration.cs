@@ -4,6 +4,7 @@ using Sughd.Auto.Application.RequestModels;
 using Sughd.Auto.Application.ResponseModels;
 using Sughd.Auto.Domain.AuthModel;
 using Sughd.Auto.Domain.Models;
+using UserResponseModel = Sughd.Auto.Application.AuthServices.ResponseModels.UserResponseModel;
 
 namespace Sughd.Auto.Application.Automapper;
 
@@ -15,8 +16,15 @@ public class AutoMapperConfiguration : Profile
         MapModel();
         MapMarka();
         MapRole();
+        UserMap();
     }
-   
+
+    private void UserMap()
+    {
+        CreateMap<User, UserResponseModel>();
+        CreateMap<UserUpdateRequestModel, User>();
+    }
+    
     private void MapCar()
     {
         CreateMap<CarRequestModel, Car>();

@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Sughd.Auto.Application.RequestModels.Auth;
+namespace Sughd.Auto.Application.AuthServices.RequestModels;
 
-public class Register
+public class UserRegisterRequestModel
 {
     [Required(ErrorMessage = "Username is required")]
     public string UserName { get; set; }

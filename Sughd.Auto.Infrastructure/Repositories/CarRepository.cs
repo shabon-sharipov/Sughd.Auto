@@ -31,8 +31,10 @@ public class CarRepository : Repository<Car>, ICarRepository
                                      && (searchCarRequestModel.MarkaId == null ||
                                          c.MarkaId == searchCarRequestModel.MarkaId)
                                      && (searchCarRequestModel.Color == null || c.Color == searchCarRequestModel.Color)
-                                     && (searchCarRequestModel.PriceFrom == null ||
-                                         c.Price >= searchCarRequestModel.PriceFrom));
+                                     && ((searchCarRequestModel.PriceFrom == null ||
+                                         c.Price >= searchCarRequestModel.PriceFrom) && 
+                                         (searchCarRequestModel.PriceTo == null ||
+                                         c.Price <= searchCarRequestModel.PriceTo) ));
 
         return await cars.ToListAsync();
     }

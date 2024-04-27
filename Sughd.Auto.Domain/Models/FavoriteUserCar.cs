@@ -1,6 +1,12 @@
-﻿namespace Sughd.Auto.Domain.Models;
+﻿using Sughd.Auto.Domain.Abstract;
+using Sughd.Auto.Domain.AuthModel;
 
-public class FavoriteUserCar
+namespace Sughd.Auto.Domain.Models;
+
+public class FavoriteUserCar : EntityBase
 {
-    
+    public long UserId { get; set; }
+    public virtual User User { get; set; }
+
+    public long CarId { get; set; }
 }

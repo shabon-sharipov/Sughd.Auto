@@ -1,4 +1,4 @@
-﻿namespace Sughd.Auto.Application.RequestModels.Auth;
+﻿namespace Sughd.Auto.Application.AuthServices.RequestModels;
 
 public class Login
 {
