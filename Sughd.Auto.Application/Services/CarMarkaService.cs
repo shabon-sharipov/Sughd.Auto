@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Sughd.Auto.Application.Exceptions;
 using Sughd.Auto.Application.Interfaces;
 using Sughd.Auto.Application.Interfaces.Repositories;
 using Sughd.Auto.Application.RequestModels;
@@ -30,14 +31,22 @@ public class CarMarkaService : ICarMarkaService
     public async Task<CarMarkaResponsModel> GetById(long id, CancellationToken cancellationToken)
     {
         var marka = await _markaRepository.FindAsync(id, cancellationToken);
-
+       if (marka == null)
+        {
+            throw new EntityNotFoundException($"Not found marka, by Id: {id}");
+        }
+        
         return _mapper.Map<CarMarkaResponsModel>(marka);
     }
 
     public async Task<CarMarkaResponsModel> Update(long id, CarMarkaRequestModel entity, CancellationToken cancellationToken)
     {
         var marka = await _markaRepository.FindAsync(id, cancellationToken);
-
+        if (marka == null)
+        {
+            throw new EntityNotFoundException($"Not found marka, by Id: {id}");
+        }
+        
         var result = _mapper.Map(entity, marka);
         await _markaRepository.SaveChangesAsync(cancellationToken);
 
@@ -54,6 +63,11 @@ public class CarMarkaService : ICarMarkaService
     public async Task<CarMarkaResponsModel> Delete(long id, CancellationToken cancellationToken)
     {
         var marka = await _markaRepository.FindAsync(id, cancellationToken);
+        if (marka == null)
+        {
+            throw new EntityNotFoundException($"Not found marka, by Id: {id}");
+        }
+        
         _markaRepository.Delete(marka);
         await _markaRepository.SaveChangesAsync(cancellationToken);
         return _mapper.Map<CarMarkaResponsModel>(marka);

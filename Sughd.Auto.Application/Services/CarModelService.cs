@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Sughd.Auto.Application.Exceptions;
 using Sughd.Auto.Application.Interfaces;
 using Sughd.Auto.Application.Interfaces.Repositories;
 using Sughd.Auto.Application.RequestModels;
@@ -28,8 +29,11 @@ public class CarModelService : ICarModelService
 
     public async Task<CarModelResponseModel> GetById(long id, CancellationToken cancellationToken)
     {
-        
         var model = await _modelRepository.FindAsync(id, cancellationToken);
+        if (model == null)
+        {
+            throw new EntityNotFoundException($"Not found model, by Id: {id}");
+        }
 
         return _mapper.Map<CarModelResponseModel>(model);
     }
@@ -37,7 +41,11 @@ public class CarModelService : ICarModelService
     public async Task<CarModelResponseModel> Update(long id, CarModelRequestModel entity, CancellationToken cancellationToken)
     {
         var model = await _modelRepository.FindAsync(id, cancellationToken);
-
+        if (model == null)
+        {
+            throw new EntityNotFoundException($"Not found model, by Id: {id}");
+        }
+        
         var result = _mapper.Map(entity, model);
         await _modelRepository.SaveChangesAsync(cancellationToken);
 
@@ -61,14 +69,18 @@ public class CarModelService : ICarModelService
                 MarkaName = model.Marka.Name
             });
         }
-
-        // var models = _mapper.Map<List<CarModelResponseModel>>(result);
+        
         return models;
     }
 
     public async Task<CarModelResponseModel> Delete(long id, CancellationToken cancellationToken)
     {
         var model = await _modelRepository.FindAsync(id, cancellationToken);
+        if (model == null)
+        {
+            throw new EntityNotFoundException($"Not found model, by Id: {id}");
+        }
+        
         _modelRepository.Delete(model);
         await _modelRepository.SaveChangesAsync(cancellationToken);
         return _mapper.Map<CarModelResponseModel>(model);
@@ -77,6 +89,11 @@ public class CarModelService : ICarModelService
     public async Task<List<CarModelResponseModel>> GetByMarkaId(long id)
     {
         var models = await _modelRepository.GetByMarkaId(id);
+        if (models == null)
+        {
+            throw new EntityNotFoundException($"Not fount models when getting by MarkaId: {id}");
+        }
+        
         return _mapper.Map<List<CarModelResponseModel>>(models);
     }
 }

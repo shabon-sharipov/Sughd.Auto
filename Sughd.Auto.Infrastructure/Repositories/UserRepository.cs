@@ -34,4 +34,11 @@ public class UserRepository : Repository<User>, IUserRepository
 
         return await Task.FromResult(user);
     }
+    
+    public async Task<User ?> FindByNameAsync(string userName)
+    {
+        var user = _dbSet.FirstOrDefault(u => u.UserName == userName);
+
+        return await Task.FromResult(user);
+    }
 }

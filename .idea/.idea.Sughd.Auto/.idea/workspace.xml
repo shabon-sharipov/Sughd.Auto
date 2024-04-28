@@ -4,43 +4,49 @@
     <projectFile profileName="IIS Express">Sughd.Auto.API/Sughd.Auto.API.csproj</projectFile>
     <projectFile profileName="http">Sughd.Auto.API/Sughd.Auto.API.csproj</projectFile>
     <projectFile profileName="https">Sughd.Auto.API/Sughd.Auto.API.csproj</projectFile>
+    <projectFile pubXmlPath="Sughd.Auto.API/Properties/PublishProfiles/sughdauto-001-site2 - FTP.pubxml">Sughd.Auto.API/Sughd.Auto.API.csproj</projectFile>
+    <projectFile pubXmlPath="Sughd.Auto.API/Properties/PublishProfiles/sughdauto-001-site2 - FTP1.pubxml">Sughd.Auto.API/Sughd.Auto.API.csproj</projectFile>
+    <projectFile pubXmlPath="Sughd.Auto.API/Properties/PublishProfiles/sughdauto-001-site2 - Web Deploy.pubxml">Sughd.Auto.API/Sughd.Auto.API.csproj</projectFile>
+    <projectFile pubXmlPath="Sughd.Auto.API/Properties/PublishProfiles/sughdauto-001-site2 - Web Deploy1.pubxml">Sughd.Auto.API/Sughd.Auto.API.csproj</projectFile>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99387cd5-639a-4e04-ab76-153ed889bc08" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Sughd.Auto.API/DependencyInjection.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sughd.Auto.Domain/AuthModel/Role.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sughd.Auto.Domain/AuthModel/User.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sughd.Auto.Domain/AuthModel/UserRole.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sughd.Auto.Domain/AuthModel/UserToken.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sughd.Auto.Domain/Models/FavoriteUserCar.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sughd.Auto.API/Controllers/AuthController/StartupInitializer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sughd.Auto.API/Middleware/ApiExceptionHandlingMiddleware.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sughd.Auto.Application/Exceptions/EntityNotFoundException.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sughd.Auto.Application/ResponseModels/Response.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Sughd.Auto/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Sughd.Auto/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sughd.Auto.API/Controllers/Auth/AuthController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sughd.Auto.API/Controllers/Auth/RoleController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sughd.Auto.API/Controllers/Auth/UserController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sughd.Auto.API/Controllers/CarDetailsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.API/Controllers/CarDetailsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.API/Controllers/AuthController/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.API/Controllers/AuthController/AuthController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.API/Controllers/AuthController/RoleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.API/Controllers/AuthController/RoleController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.API/Controllers/AuthController/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.API/Controllers/AuthController/UserController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.API/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.API/DependencyInjection.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sughd.Auto.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.API/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sughd.Auto.API/Sughd.Auto.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.API/Sughd.Auto.API.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sughd.Auto.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.API/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/Automapper/AutoMapperConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/Automapper/AutoMapperConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/DependencyInjection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/Interfaces/Auth/IAuthService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/Interfaces/Auth/ITokenService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/Interfaces/IUserService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/AuthServices/RequestModels/Login.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/AuthServices/RequestModels/LoginRequestModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/AuthServices/ResponseModels/JwtTokenResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/AuthServices/ResponseModels/JwtTokenResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/AuthServices/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/AuthServices/UserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/Constants/Constant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/Constants/UserRoles.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/Interfaces/Auth/AuthRepository/IRoleRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/Interfaces/Auth/AuthRepository/IRoleRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/Interfaces/Repositories/IUserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/Interfaces/Repositories/IUserRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/ResponseModels/UserResponseModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/ResponseModels/UserResponseModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/Services/Auth/AuthService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/Services/Auth/RoleService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/Services/Auth/TokenService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/Services/UserService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/Sughd.Auto.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/Sughd.Auto.Application.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Domain/Models/Car.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Domain/Models/Car.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Domain/Models/User.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/Services/CarMarkaService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/Services/CarMarkaService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/Services/CarModelService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/Services/CarModelService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/Services/CarService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/Services/CarService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Application/Services/FavoriteUserCarService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Application/Services/FavoriteUserCarService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Infrastructure/AuthRepositories/RoleRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Infrastructure/AuthRepositories/RoleRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Infrastructure/DataBase/Configuration/CarConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Infrastructure/DataBase/Configuration/CarConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Infrastructure/DataBase/Configuration/MarkaConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Infrastructure/DataBase/Configuration/MarkaConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Infrastructure/DataBase/Configuration/ModelConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Infrastructure/DataBase/Configuration/ModelConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Infrastructure/DataBase/Configuration/RoleConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Infrastructure/DataBase/Configuration/RoleConfiguration.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sughd.Auto.Infrastructure/DataBase/Configuration/UserConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Infrastructure/DataBase/Configuration/UserConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Infrastructure/DataBase/Configuration/UserRoleConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Infrastructure/DataBase/Configuration/UserRoleConfiguration.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sughd.Auto.Infrastructure/DataBase/EFContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Infrastructure/DataBase/EFContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Infrastructure/EFContextFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Infrastructure/EFContextFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Infrastructure/Repositories/Repository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Infrastructure/Repositories/Repository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sughd.Auto.Infrastructure/Repositories/UserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Infrastructure/Repositories/UserRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sughd.Auto.Infrastructure/Sughd.Auto.Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Sughd.Auto.Infrastructure/Sughd.Auto.Infrastructure.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,25 +56,35 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="Created-auth" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/efcore/e017dc125bef2f604f85befd8ff27544a5a67c38/src/EFCore/Infrastructure/Internal/LazyLoader.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/efcore/e017dc125bef2f604f85befd8ff27544a5a67c38/src/EFCore/Infrastructure/ModelValidator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/5535e31a712343a63f5d7d796cd874e563e5ac14/src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceLookup/CallSiteRuntimeResolver.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/5535e31a712343a63f5d7d796cd874e563e5ac14/src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceLookup/CallSiteVisitor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/5535e31a712343a63f5d7d796cd874e563e5ac14/src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceLookup/DynamicServiceProviderEngine.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/5535e31a712343a63f5d7d796cd874e563e5ac14/src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceLookup/ServiceProviderEngineScope.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/9f4b1f5d664afdfc80e1508ab7ed099dff210fbd/src/libraries/Microsoft.Extensions.DependencyInjection.Abstractions/src/ActivatorUtilities.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/9f4b1f5d664afdfc80e1508ab7ed099dff210fbd/src/libraries/Microsoft.Extensions.DependencyInjection.Abstractions/src/ServiceProviderServiceExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/9f4b1f5d664afdfc80e1508ab7ed099dff210fbd/src/libraries/System.Private.CoreLib/src/System/Collections/Generic/List.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/9f4b1f5d664afdfc80e1508ab7ed099dff210fbd/src/libraries/System.Private.CoreLib/src/System/Exception.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/9f4b1f5d664afdfc80e1508ab7ed099dff210fbd/src/libraries/System.Private.CoreLib/src/System/Int32.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/9f4b1f5d664afdfc80e1508ab7ed099dff210fbd/src/libraries/System.Private.CoreLib/src/System/Reflection/MethodBaseInvoker.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/9f4b1f5d664afdfc80e1508ab7ed099dff210fbd/src/libraries/System.Private.CoreLib/src/System/Runtime/CompilerServices/AsyncValueTaskMethodBuilderT.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/9f4b1f5d664afdfc80e1508ab7ed099dff210fbd/src/libraries/System.Private.CoreLib/src/System/Runtime/ExceptionServices/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0c53ee5c91f047f387400d094b3581c4267420/19/1a32a9ce/EntityFrameworkQueryableExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/64453bbe609a4e788912c4dfa02029831de908/89/60900ea0/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/64453bbe609a4e788912c4dfa02029831de908/8d/be9f6adf/ControllerFactoryProvider.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7c05a9f56cce41eba9451cc4a5a099cc138b0/0c/00c75957/IHostedService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8dd32175bfa94c70a5888d0e689147f846fc0/2a/61f52ffc/SymmetricSecurityKey.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8dd32175bfa94c70a5888d0e689147f846fc0/fc/400870f1/SigningCredentials.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e4f2735e125a4c22ba1aed93cadc2f7114820/35/d8d26517/JwtSecurityTokenHandler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e4f2735e125a4c22ba1aed93cadc2f7114820/b2/4232fa62/JwtSecurityToken.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ecc8a902b3ea4974a5542f6c83d371af17c00/6d/c23dea6e/SwaggerGenServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/shabo/source/repos/Sughd.Auto/Sughd.Auto.API/Controllers/CarDetailsController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/shabo/source/repos/Sughd.Auto/Sughd.Auto.API/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/shabo/source/repos/Sughd.Auto/Sughd.Auto.Application/DependencyInjection.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/shabo/source/repos/Sughd.Auto/Sughd.Auto.Application/DependencyInjection.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/shabo/source/repos/Sughd.Auto/Sughd.Auto.Application/ResponseModels/UserResponseModel.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/shabo/source/repos/Sughd.Auto/Sughd.Auto.Domain/Models/Car.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/shabo/source/repos/Sughd.Auto/Sughd.Auto.Domain/Models/Car.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/shabo/source/repos/Sughd.Auto/Sughd.Auto.Infrastructure/DataBase/Configuration/UserConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/shabo/source/repos/Sughd.Auto/Sughd.Auto.Infrastructure/DataBase/EFContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/shabo/source/repos/Sughd.Auto/Sughd.Auto.Infrastructure/DataBase/EFContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/shabo/source/repos/Sughd.Auto/Sughd.Auto.Infrastructure/DataBase/EFContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/shabo/source/repos/Sughd.Auto/Sughd.Auto.Infrastructure/Repositories/UserRepository.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="false" />
   <component name="ProjectColorInfo">{
@@ -80,32 +96,49 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.Sughd.Auto.API: https.executor": "Debug",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "XThreadsFramesViewSplitterKey": "0.5054602",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.Sughd.Auto.API: https.executor&quot;: &quot;Debug&quot;,
+    &quot;Publish to IIS.Sughd.Auto.API: sughdauto-001-site2 - Web Deploy.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.5054602&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ],
-    "rider.external.source.directories": [
-      "C:\\Users\\shabo\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
-      "C:\\Users\\shabo\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
-      "C:\\Users\\shabo\\AppData\\Local\\Symbols\\src"
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\shabo\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\shabo\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\shabo\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Sughd.Auto.API: https">
+    <configuration name="Sughd.Auto.API: sughdauto-001-site2 - FTP" type="DotNetMsBuildPublish" factoryName="Publish to IIS">
+      <riderPublish configuration="Release" platform="Any CPU" publish_profile="sughdauto-001-site2 - FTP.pubxml" pubxml_path="$PROJECT_DIR$/Sughd.Auto.API/Properties/PublishProfiles/sughdauto-001-site2 - FTP.pubxml" user_name="sughdauto-001" uuid_high="-6261829284962480782" uuid_low="-4852081108516180452" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Sughd.Auto.API: sughdauto-001-site2 - FTP1" type="DotNetMsBuildPublish" factoryName="Publish to IIS">
+      <riderPublish configuration="Release" platform="Any CPU" publish_profile="sughdauto-001-site2 - FTP1.pubxml" pubxml_path="$PROJECT_DIR$/Sughd.Auto.API/Properties/PublishProfiles/sughdauto-001-site2 - FTP1.pubxml" user_name="sughdauto-001" uuid_high="-6261829284962480782" uuid_low="-4852081108516180452" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Sughd.Auto.API: sughdauto-001-site2 - Web Deploy" type="DotNetMsBuildPublish" factoryName="Publish to IIS">
+      <riderPublish configuration="Release" platform="Any CPU" publish_profile="sughdauto-001-site2 - Web Deploy.pubxml" pubxml_path="$PROJECT_DIR$/Sughd.Auto.API/Properties/PublishProfiles/sughdauto-001-site2 - Web Deploy.pubxml" user_name="sughdauto-001" uuid_high="-6261829284962480782" uuid_low="-4852081108516180452" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Sughd.Auto.API: sughdauto-001-site2 - Web Deploy1" type="DotNetMsBuildPublish" factoryName="Publish to IIS">
+      <riderPublish configuration="Release" platform="Any CPU" publish_profile="sughdauto-001-site2 - Web Deploy1.pubxml" pubxml_path="$PROJECT_DIR$/Sughd.Auto.API/Properties/PublishProfiles/sughdauto-001-site2 - Web Deploy1.pubxml" user_name="sughdauto-001" uuid_high="-6261829284962480782" uuid_low="-4852081108516180452" />
+      <method v="2" />
+    </configuration>
     <configuration name="Sughd.Auto.API: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Sughd.Auto.API/Sughd.Auto.API.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
@@ -155,9 +188,14 @@
       <item itemvalue=".NET Launch Settings Profile.Sughd.Auto.API: IIS Express" />
       <item itemvalue=".NET Launch Settings Profile.Sughd.Auto.API: http" />
       <item itemvalue=".NET Launch Settings Profile.Sughd.Auto.API: https" />
+      <item itemvalue="Publish to IIS.Sughd.Auto.API: sughdauto-001-site2 - FTP1" />
+      <item itemvalue="Publish to IIS.Sughd.Auto.API: sughdauto-001-site2 - Web Deploy1" />
+      <item itemvalue="Publish to IIS.Sughd.Auto.API: sughdauto-001-site2 - FTP" />
+      <item itemvalue="Publish to IIS.Sughd.Auto.API: sughdauto-001-site2 - Web Deploy" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue=".NET Launch Settings Profile.Sughd.Auto.API: https" />
         <item itemvalue=".NET Launch Settings Profile.Sughd.Auto.API: https" />
         <item itemvalue=".NET Launch Settings Profile.Sughd.Auto.API: https" />
         <item itemvalue=".NET Launch Settings Profile.Sughd.Auto.API: https" />
@@ -186,6 +224,18 @@
       <workItem from="1712986745617" duration="842000" />
       <workItem from="1713077771045" duration="8975000" />
       <workItem from="1713164286111" duration="4729000" />
+      <workItem from="1713843124408" duration="251000" />
+      <workItem from="1713886001911" duration="12996000" />
+      <workItem from="1713901551507" duration="345000" />
+      <workItem from="1713901922585" duration="3481000" />
+      <workItem from="1713969546060" duration="13632000" />
+      <workItem from="1714013935275" duration="6800000" />
+      <workItem from="1714052215851" duration="4417000" />
+      <workItem from="1714099084175" duration="1371000" />
+      <workItem from="1714188675540" duration="360000" />
+      <workItem from="1714279468037" duration="7474000" />
+      <workItem from="1714287039749" duration="6488000" />
+      <workItem from="1714297079324" duration="3486000" />
     </task>
     <task id="LOCAL-00001" summary="Implemented search">
       <option name="closed" value="true" />
@@ -195,7 +245,31 @@
       <option name="project" value="LOCAL" />
       <updated>1712220442967</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Deleted Identity user">
+      <option name="closed" value="true" />
+      <created>1713843203481</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1713843203481</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Created auth implementation">
+      <option name="closed" value="true" />
+      <created>1713973730215</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1713973730215</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added favorite car">
+      <option name="closed" value="true" />
+      <created>1714188716469</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1714188716469</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,46 +280,159 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Added configuration all table" />
     <MESSAGE value="Implemented search" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented search" />
+    <MESSAGE value="Deleted Identity user" />
+    <MESSAGE value="Created auth implementation" />
+    <MESSAGE value="Added favorite car" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added favorite car" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Sughd.Auto.API/Controllers/CarController.cs</url>
-          <line>37</line>
-          <properties documentPath="C:\Users\shabo\OneDrive\Desktop\Sughd.Auto\Sughd.Auto.API\Controllers\CarController.cs" initialLine="36" containingFunctionPresentation="Method 'Post'" />
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Sughd.Auto.API/Controllers/CarController.cs</url>
-          <line>30</line>
-          <properties documentPath="C:\Users\shabo\OneDrive\Desktop\Sughd.Auto\Sughd.Auto.API\Controllers\CarController.cs" initialLine="30" containingFunctionPresentation="Method 'GetAll'" />
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Sughd.Auto.API/Controllers/ModelController.cs</url>
-          <line>34</line>
-          <properties documentPath="C:\Users\shabo\OneDrive\Desktop\Sughd.Auto\Sughd.Auto.API\Controllers\ModelController.cs" initialLine="34" containingFunctionPresentation="Method 'GetAll'" />
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Sughd.Auto.Application/Services/CarModelService.cs</url>
-          <line>54</line>
+          <line>62</line>
           <properties documentPath="C:\Users\shabo\OneDrive\Desktop\Sughd.Auto\Sughd.Auto.Application\Services\CarModelService.cs" initialLine="54" containingFunctionPresentation="Method 'Get'" />
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Sughd.Auto.API/Controllers/ModelController.cs</url>
-          <line>48</line>
-          <properties documentPath="C:\Users\shabo\OneDrive\Desktop\Sughd.Auto\Sughd.Auto.API\Controllers\ModelController.cs" initialLine="48" containingFunctionPresentation="Method 'Update'" />
-          <option name="timeStamp" value="21" />
+          <url>file://$PROJECT_DIR$/Sughd.Auto.Application/AuthServices/AuthService.cs</url>
+          <line>59</line>
+          <properties documentPath="C:\Users\shabo\source\repos\Sughd.Auto\Sughd.Auto.Application\AuthServices\AuthService.cs" initialLine="49" containingFunctionPresentation="Method 'Register'" />
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Sughd.Auto.API/Controllers/ModelController.cs</url>
-          <line>41</line>
-          <properties documentPath="C:\Users\shabo\OneDrive\Desktop\Sughd.Auto\Sughd.Auto.API\Controllers\ModelController.cs" initialLine="41" containingFunctionPresentation="Method 'Post'" />
-          <option name="timeStamp" value="22" />
+          <url>file://$PROJECT_DIR$/Sughd.Auto.Application/AuthServices/RoleService.cs</url>
+          <line>76</line>
+          <properties documentPath="C:\Users\shabo\source\repos\Sughd.Auto\Sughd.Auto.Application\AuthServices\RoleService.cs" initialLine="77" containingFunctionPresentation="Method 'AddUserRoleAsync'" />
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Sughd.Auto.Application/AuthServices/RoleService.cs</url>
+          <line>83</line>
+          <properties documentPath="C:\Users\shabo\source\repos\Sughd.Auto\Sughd.Auto.Application\AuthServices\RoleService.cs" initialLine="84" containingFunctionPresentation="Method 'AddUserRoleAsync'" />
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Sughd.Auto.API/Controllers/AuthController/AuthController.cs</url>
+          <line>57</line>
+          <properties documentPath="C:\Users\shabo\source\repos\Sughd.Auto\Sughd.Auto.API\Controllers\AuthController\AuthController.cs" initialLine="57" containingFunctionPresentation="Method 'RefreshToken'" />
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Sughd.Auto.Application/AuthServices/TokenService.cs</url>
+          <line>72</line>
+          <properties documentPath="C:\Users\shabo\source\repos\Sughd.Auto\Sughd.Auto.Application\AuthServices\TokenService.cs" initialLine="72" containingFunctionPresentation="Method 'GenerateRefreshToken'" />
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Sughd.Auto.Application/AuthServices/TokenService.cs</url>
+          <line>36</line>
+          <properties documentPath="C:\Users\shabo\source\repos\Sughd.Auto\Sughd.Auto.Application\AuthServices\TokenService.cs" initialLine="36" containingFunctionPresentation="Method 'GenerateToken'" />
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Sughd.Auto.Application/Services/CarService.cs</url>
+          <line>24</line>
+          <properties documentPath="C:\Users\shabo\source\repos\Sughd.Auto\Sughd.Auto.Application\Services\CarService.cs" initialLine="23" containingFunctionPresentation="Method 'Create'">
+            <startOffsets>
+              <option value="764" />
+            </startOffsets>
+            <endOffsets>
+              <option value="818" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Sughd.Auto.API/Controllers/AuthController/UserController.cs</url>
+          <line>30</line>
+          <properties documentPath="C:\Users\shabo\source\repos\Sughd.Auto\Sughd.Auto.API\Controllers\AuthController\UserController.cs" initialLine="27" containingFunctionPresentation="Method 'GetAll'">
+            <startOffsets>
+              <option value="812" />
+            </startOffsets>
+            <endOffsets>
+              <option value="890" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Sughd.Auto.API/Controllers/AuthController/UserController.cs</url>
+          <line>37</line>
+          <properties documentPath="C:\Users\shabo\source\repos\Sughd.Auto\Sughd.Auto.API\Controllers\AuthController\UserController.cs" initialLine="34" containingFunctionPresentation="Method 'Update'">
+            <startOffsets>
+              <option value="1046" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1130" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Sughd.Auto.Infrastructure/Repositories/FavoriteUserCarRepository.cs</url>
+          <line>17</line>
+          <properties documentPath="C:\Users\shabo\source\repos\Sughd.Auto\Sughd.Auto.Infrastructure\Repositories\FavoriteUserCarRepository.cs" initialLine="17" containingFunctionPresentation="Method 'GetByUserId'">
+            <startOffsets>
+              <option value="546" />
+            </startOffsets>
+            <endOffsets>
+              <option value="580" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Sughd.Auto.API/Controllers/FavoriteUserCarController.cs</url>
+          <line>30</line>
+          <properties documentPath="C:\Users\shabo\source\repos\Sughd.Auto\Sughd.Auto.API\Controllers\FavoriteUserCarController.cs" initialLine="30" containingFunctionPresentation="Method 'Post'">
+            <startOffsets>
+              <option value="919" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1024" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Sughd.Auto.API/Controllers/AuthController/StartupInitializer.cs</url>
+          <line>45</line>
+          <properties documentPath="C:\Users\shabo\source\repos\Sughd.Auto\Sughd.Auto.API\Controllers\AuthController\StartupInitializer.cs" initialLine="45" containingFunctionPresentation="Method 'StartAsync'">
+            <startOffsets>
+              <option value="1759" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1823" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Sughd.Auto.API/Controllers/FavoriteUserCarController.cs</url>
+          <line>45</line>
+          <properties documentPath="C:\Users\shabo\source\repos\Sughd.Auto\Sughd.Auto.API\Controllers\FavoriteUserCarController.cs" initialLine="45" containingFunctionPresentation="Method 'Delete'">
+            <startOffsets>
+              <option value="1326" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1378" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Sughd.Auto.Application/AuthServices/TokenService.cs</url>
+          <line>44</line>
+          <properties documentPath="C:\Users\shabo\source\repos\Sughd.Auto\Sughd.Auto.Application\AuthServices\TokenService.cs" initialLine="44" containingFunctionPresentation="Method 'GenerateToken'">
+            <startOffsets>
+              <option value="1425" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1877" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="63" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

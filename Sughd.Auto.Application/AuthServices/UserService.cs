@@ -2,6 +2,7 @@
 using Sughd.Auto.Application.AuthServices.ResponseModels;
 using Sughd.Auto.Application.Interfaces.Repositories;
 using Sughd.Auto.Application.AuthServices.RequestModels;
+using Sughd.Auto.Application.Exceptions;
 using Sughd.Auto.Application.Interfaces.Auth.AuthRepository;
 using Sughd.Auto.Application.RequestModels;
 
@@ -10,10 +11,11 @@ namespace Sughd.Auto.Application.AuthServices;
 public interface IUserService
 {
     Task<UserResponseModel> GetById(long id, CancellationToken cancellationToken);
-    
+
     Task<UserResponseModel> Update(long id, UserUpdateRequestModel entity, CancellationToken cancellationToken);
     Task<List<UserResponseModel>> Get(int pageSize, int pageNumber, CancellationToken cancellationToken);
     Task<UserResponseModel> Delete(long id, CancellationToken cancellationToken);
+    Task<UserResponseModel> FindByNameAsync(string email, CancellationToken cancellationToken);
 }
 
 public class UserService : IUserService
@@ -28,7 +30,7 @@ public class UserService : IUserService
         _mapper = mapper;
         _roleRepository = roleRepository;
     }
-    
+
     public async Task<UserResponseModel> GetById(long id, CancellationToken cancellationToken)
     {
         var car = await _userRepository.FindAsync(id, cancellationToken);
@@ -36,10 +38,11 @@ public class UserService : IUserService
         return _mapper.Map<UserResponseModel>(car);
     }
 
-    public async Task<UserResponseModel> Update(long id, UserUpdateRequestModel entity, CancellationToken cancellationToken)
+    public async Task<UserResponseModel> Update(long id, UserUpdateRequestModel entity,
+        CancellationToken cancellationToken)
     {
         var user = await _userRepository.FindAsync(id, cancellationToken);
-        
+
         user.UserName = entity.UserName;
         user.PhoneNumber = entity.PhoneNumber;
         user.Password = entity.Password;
@@ -51,7 +54,7 @@ public class UserService : IUserService
             var role = await _roleRepository.FindAsync(roleId);
             user.Roles.Add(role);
         }
-        
+
         await _userRepository.SaveChangesAsync(cancellationToken);
 
         return _mapper.Map<UserResponseModel>(user);
@@ -62,7 +65,7 @@ public class UserService : IUserService
         var users = await _userRepository.GetAllAsync(pageSize, pageNumber, cancellationToken);
 
         var userResponse = new List<UserResponseModel>();
-        
+
         foreach (var user in users.ToList())
         {
             userResponse.Add(new UserResponseModel()
@@ -76,20 +79,32 @@ public class UserService : IUserService
                 Password = user.Password
             });
         }
-        
+
         return userResponse;
     }
 
     public async Task<UserResponseModel> Delete(long id, CancellationToken cancellationToken)
     {
-        var car = await _userRepository.FindAsync(id, cancellationToken);
-        if (car == null)
+        var user = await _userRepository.FindAsync(id, cancellationToken);
+        if (user == null)
         {
-            //need add log
-            return new UserResponseModel();
+            throw new EntityNotFoundException($"Not found user by ID: {id}");
         }
-        _userRepository.Delete(car);
+
+        _userRepository.Delete(user);
         await _userRepository.SaveChangesAsync(cancellationToken);
-        return _mapper.Map<UserResponseModel>(car);
+        return _mapper.Map<UserResponseModel>(user);
+    }
+
+    public async Task<UserResponseModel> FindByNameAsync(string email, CancellationToken cancellationToken)
+    {
+        var user = await _userRepository.FindByEmailAsync(email);
+
+        if (user == null)
+        {
+            throw new EntityNotFoundException($"Not found user by Email: {email}");
+        }
+
+        return _mapper.Map<UserResponseModel>(user);
     }
 }

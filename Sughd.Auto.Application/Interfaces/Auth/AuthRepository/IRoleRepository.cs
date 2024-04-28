@@ -6,4 +6,5 @@ namespace Sughd.Auto.Application.Interfaces.Auth.AuthRepository;
 public interface IRoleRepository : IRepository<Role>
 {
     Task<bool> RoleExistsAsync(string role);
+    Task<Role> GetByName(string roles);
 }

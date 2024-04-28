@@ -9,7 +9,7 @@ namespace Sughd.Auto.API.Controllers.AuthController;
 public class AuthController(IAuthService authService) : ControllerBase
 {
     [HttpPost("login")]
-    public async Task<IActionResult> Login(Login model)
+    public async Task<IActionResult> Login(LoginRequestModel model)
     {
         try
         {

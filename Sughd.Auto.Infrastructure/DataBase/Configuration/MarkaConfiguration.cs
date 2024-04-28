@@ -13,5 +13,7 @@ public class MarkaConfiguration : IEntityTypeConfiguration<Marka>
         
         builder.Property(m => m.Name)
          .IsRequired();
+        
+        builder.Property(c => c.Name);
     }
 }

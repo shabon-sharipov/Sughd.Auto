@@ -17,4 +17,11 @@ public class RoleRepository : Repository<Role>, IRoleRepository
 
         return await Task.FromResult(result);
     }
+
+    public async Task<Role?> GetByName(string role)
+    {
+        var result = _dbSet.FirstOrDefault(r => r.Name.ToLower() == role.ToLower().Trim());
+
+        return await Task.FromResult(result);
+    }
 }

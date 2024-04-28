@@ -29,13 +29,17 @@ public abstract class Repository<T> where T : class // need find how to Use Enti
     }
 
     public T Find(long id) => _dbSet.Find(id);
-    public async Task<T> FindAsync(long id, CancellationToken cancellationToken = default) => await _dbSet.FindAsync(id, cancellationToken);
+    public async Task<T ?> FindAsync(long id, CancellationToken cancellationToken = default) => await _dbSet.FindAsync(id, cancellationToken);
 
     public void Add(T entity) => _dbSet.Add(entity);
     public void Add(IEnumerable<T> entities) => _dbSet.AddRange(entities);
 
-    public async Task AddAsync(T entity, CancellationToken cancellationToken = default) => await _dbSet.AddAsync(entity, cancellationToken);
-
+    public async Task AddAsync(T entity, CancellationToken cancellationToken = default)
+    {
+        await _dbSet.AddAsync(entity, cancellationToken);
+        await _context.SaveChangesAsync(cancellationToken);
+    } 
+    
     public async Task AddAsync(IEnumerable<T> entities, CancellationToken cancellationToken = default) => await _dbSet.AddRangeAsync(entities, cancellationToken);
 
     public void Delete(T entity) => _dbSet.Remove(entity);

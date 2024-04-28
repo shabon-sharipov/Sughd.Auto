@@ -3,6 +3,11 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Sughd.Auto.Application.AuthServices;
+using Sughd.Auto.Application.Constants;
+using Sughd.Auto.Application.Interfaces.Auth.AuthRepository;
+using Sughd.Auto.Application.Interfaces.Repositories;
+using Sughd.Auto.Domain.AuthModel;
 using Sughd.Auto.Infrastructure.DataBase;
 
 namespace Sughd.Auto.API;
@@ -39,16 +44,7 @@ public static class DependencyInjection
             });
         });
 
-        services.AddCors(options =>
-        {
-            options.AddPolicy("AllowSpecificOrigin",
-                builder =>
-                {
-                    builder.WithOrigins("https://localhost:7077")
-                        .AllowAnyHeader()
-                        .AllowAnyMethod();
-                });
-        });
+        services.AddCors();
     }
 
     public static void AddDbContext(this IServiceCollection services, WebApplicationBuilder builder)

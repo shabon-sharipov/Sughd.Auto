@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Sughd.Auto.Application.Constants;
 using Sughd.Auto.Domain.AuthModel;
 
 namespace Sughd.Auto.Infrastructure.DataBase.Configuration;

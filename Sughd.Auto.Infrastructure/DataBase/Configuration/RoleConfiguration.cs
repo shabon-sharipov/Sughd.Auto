@@ -13,5 +13,7 @@ public class RoleConfiguration : IEntityTypeConfiguration<Role>
 
         builder.HasMany(r => r.Users)
             .WithMany(u => u.Roles);
+        
+        builder.Property(c => c.Name);
     }
 }

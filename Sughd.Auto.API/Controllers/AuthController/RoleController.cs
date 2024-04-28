@@ -18,7 +18,7 @@ public class RoleController : ControllerBase
         _roleService = roleService;
     }
 
-    [Authorize(Roles = $"{Constant.AdminRole}, {Constant.WorkerRole}")]
+    [Authorize(Roles = $"{UserRoles.Admin}, {UserRoles.Moderator}")]
     [HttpGet("GetRoles")]
     public async Task<IActionResult> GetRoles()
     {
@@ -26,7 +26,7 @@ public class RoleController : ControllerBase
         return Ok(list);
     }
 
-    [Authorize(Roles = $"{Constant.AdminRole}")]
+    [Authorize(Roles = $"{UserRoles.Admin}, {UserRoles.Moderator}")]
     [HttpGet("GetUserRole")]
     public async Task<IActionResult> GetUserRole(string userEmail)
     {
@@ -34,7 +34,7 @@ public class RoleController : ControllerBase
         return Ok(userClaims);
     }
     
-    //[Authorize(Roles = "admin")]
+    [Authorize(Roles = $"{UserRoles.Admin}, {UserRoles.Moderator}")]
     [HttpPost("addRoles")]
     public async Task<ActionResult> AddRole(string[] roles)
     {
@@ -47,7 +47,7 @@ public class RoleController : ControllerBase
         return Ok(userrole);
     }
 
-    // [Authorize(Roles = "admin")]
+    [Authorize(Roles = $"{UserRoles.Admin}, {UserRoles.Moderator}")]
     [HttpPost("addUserRoles")]
     public async Task<ActionResult> AddUserRole([FromBody] AddUserRoleRequestModel addUser)
     {

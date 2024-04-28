@@ -15,5 +15,7 @@ public class ModelConfiguration : IEntityTypeConfiguration<Model>
         builder.HasOne(m => m.Marka)
             .WithMany()
             .HasForeignKey(m => m.MarkaId);
+        
+        builder.Property(c => c.Name);
     }
 }

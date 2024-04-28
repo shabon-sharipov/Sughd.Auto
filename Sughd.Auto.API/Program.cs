@@ -1,8 +1,8 @@
-using Microsoft.EntityFrameworkCore;
 using Sughd.Auto.API;
+using Sughd.Auto.API.Controllers.AuthController;
+using Sughd.Auto.API.Middleware;
 using Sughd.Auto.Application;
 using Sughd.Auto.Infrastructure;
-using Sughd.Auto.Infrastructure.DataBase;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
@@ -13,21 +13,22 @@ builder.Services.AddApplicationLayer();
 builder.Services.AddInfrastructureLayer();
 builder.Services.AddDbContext(builder);
 builder.Services.AddAuthToken(builder.Configuration);
+builder.Services.AddHostedService<StartupInitializer>();
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
-app.UseCors("AllowSpecificOrigin");
+app.UseCors(x => x
+    .AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader());
+
 app.UseHttpsRedirection();
+app.UseMiddleware<ApiExceptionHandlingMiddleware>();
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseAuthorization();
-    
 app.MapControllers();
-
-app.Run();  
+app.Run();

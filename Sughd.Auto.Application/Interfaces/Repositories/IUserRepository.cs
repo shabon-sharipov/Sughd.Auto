@@ -10,4 +10,5 @@ public interface IUserRepository : IRepository<User>
 
     Task<User ?> GetByRefreshToken(string refreshToken);
     Task<User ?> FindByEmailAsync(string email);
+    Task<User ?> FindByNameAsync(string userName);
 }
