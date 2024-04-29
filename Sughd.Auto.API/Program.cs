@@ -28,6 +28,7 @@ app.UseCors(x => x
 app.UseHttpsRedirection();
 app.UseMiddleware<ApiExceptionHandlingMiddleware>();
 app.UseAuthentication();
+app.UseStaticFiles();
 app.UseAuthorization();
 app.UseAuthorization();
 app.MapControllers();

@@ -29,4 +29,8 @@
     <ProjectReference Include="..\Sughd.Auto.Infrastructure\Sughd.Auto.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\CarImages\" />
+  </ItemGroup>
+
 </Project>
