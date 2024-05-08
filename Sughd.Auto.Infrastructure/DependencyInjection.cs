@@ -18,5 +18,6 @@ public static class DependencyInjection
         services.AddScoped<IUserRoleRepository, UserRoleRepository>();
         services.AddScoped<IUserTokenRepository, UserTokenRepository>();
         services.AddScoped<IFavoriteUserCarRepository, FavoriteUserCarRepository>();
+        services.AddScoped<ITestRepository, TestRepository>();
     }
 }
