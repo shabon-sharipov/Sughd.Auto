@@ -34,7 +34,14 @@ public class UserRepository : Repository<User>, IUserRepository
 
         return await Task.FromResult(user);
     }
-    
+
+    public async Task<User ?> FindByEmailAndPasswordAsync(string email, string password)
+    {
+        var user = _dbSet.Include(s=>s.Roles).FirstOrDefault(u => u.Email == email && u.Password == password);
+
+        return await Task.FromResult(user);
+    }
+
     public async Task<User ?> FindByNameAsync(string userName)
     {
         var user = _dbSet.FirstOrDefault(u => u.UserName == userName);

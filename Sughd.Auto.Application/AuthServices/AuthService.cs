@@ -31,7 +31,7 @@ public class AuthService : IAuthService
 
     public async Task<JwtTokenResponse> Login(string userEmail, string password)
     {
-        var user = await _userRepository.FindByEmailAsync(userEmail);
+        var user = await _userRepository.FindByEmailAndPasswordAsync(userEmail, password);
 
         if (user == null)
             throw new InvalidOperationException("Invalid username or password.");
