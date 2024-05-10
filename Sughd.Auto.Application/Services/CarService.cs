@@ -72,4 +72,16 @@ public class CarService : ICarService
         await _carRepository.SaveChangesAsync(cancellationToken);
         return _mapper.Map<CarResponseModel>(car);
     }
+
+    public async Task UpdateImage(long id, List<string> images)
+    {
+        var car = await _carRepository.FindAsync(id);
+        if (car == null)
+        {
+            throw new EntityNotFoundException($"Not found car, by {id}");
+        }
+
+        car.Images = images;
+        await _carRepository.SaveChangesAsync();
+    }
 }

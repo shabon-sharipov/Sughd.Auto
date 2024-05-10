@@ -6,4 +6,5 @@ namespace Sughd.Auto.Application.Interfaces;
 
 public interface ICarService : IBaseService<CarRequestModel, CarResponseModel>
 {
+    Task UpdateImage(long id, List<string> images);
 }
