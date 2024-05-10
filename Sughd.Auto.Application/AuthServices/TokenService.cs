@@ -46,7 +46,7 @@ public class TokenService : ITokenService
             issuer:_configuration["JwtSettings:Issuer"],
             audience:_configuration["JwtSettings:Audience"],
             claims:claims,
-            expires:DateTime.UtcNow.Add(TimeSpan.FromMinutes(15)),
+            expires:DateTime.UtcNow.Add(TimeSpan.FromDays(1)),
             signingCredentials: new SigningCredentials(
                 new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtSettings:Secret"])),
                 SecurityAlgorithms.HmacSha256));
