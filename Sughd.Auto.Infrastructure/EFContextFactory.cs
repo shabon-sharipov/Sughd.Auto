@@ -9,7 +9,7 @@ public class EFContextFactory : IDesignTimeDbContextFactory<EFContext>
     public EFContext CreateDbContext(string[] args)
     {
         var optionsBuilder = new DbContextOptionsBuilder<EFContext>();
-        optionsBuilder.UseSqlServer("Data Source=SQL6032.site4now.net;Initial Catalog=db_aa819e_sughdauto;User Id=db_aa819e_sughdauto_admin;Password=987094321_SH");
+        optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=Sughd.Auto;Username=postgres;Password=4321");
 
         return new EFContext(optionsBuilder.Options);
     }

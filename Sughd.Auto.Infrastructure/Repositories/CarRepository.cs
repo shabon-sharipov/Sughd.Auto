@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Sughd.Auto.Application.Interfaces.Repositories;
 using Sughd.Auto.Application.RequestModels;
+using Sughd.Auto.Application.ResponseModels;
 using Sughd.Auto.Domain.Models;
 using Sughd.Auto.Infrastructure.DataBase;
 
@@ -16,26 +17,15 @@ public class CarRepository : Repository<Car>, ICarRepository
     public async Task<List<Car>> Search(SearchCarRequestModel searchCarRequestModel)
     {
         var cars = _dbSet.Where(c => c.IsActive == true
-                                     && (searchCarRequestModel.FuelType == null ||
-                                         c.FuelType == searchCarRequestModel.FuelType)
-                                     && (searchCarRequestModel.CarBody == null ||
-                                         c.CarBody == searchCarRequestModel.CarBody)
+                                     && c.IsSold == false
                                      && (searchCarRequestModel.ModelId == null ||
                                          c.ModelId == searchCarRequestModel.ModelId)
-                                     && (searchCarRequestModel.Transmission == null ||
-                                         c.Transmission == searchCarRequestModel.Transmission)
-                                     && (searchCarRequestModel.IsRastamogeno == null ||
-                                         c.IsRastamogeno == searchCarRequestModel.IsRastamogeno)
-                                     && (searchCarRequestModel.DateOfPablisher == null ||
-                                         c.DateOfPablisher == searchCarRequestModel.DateOfPablisher)
+                                     && ((searchCarRequestModel.DateOfPublisherFrom == null ||
+                                          c.DateOfPublisher >= searchCarRequestModel.DateOfPublisherFrom) &&
+                                         (searchCarRequestModel.DateOfPublisherTo == null ||
+                                          c.DateOfPublisher >= searchCarRequestModel.DateOfPublisherTo))
                                      && (searchCarRequestModel.MarkaId == null ||
-                                         c.MarkaId == searchCarRequestModel.MarkaId)
-                                     && (searchCarRequestModel.Color == null || c.Color == searchCarRequestModel.Color)
-                                     && ((searchCarRequestModel.PriceFrom == null ||
-                                         c.Price >= searchCarRequestModel.PriceFrom) && 
-                                         (searchCarRequestModel.PriceTo == null ||
-                                         c.Price <= searchCarRequestModel.PriceTo) ));
-
+                                         c.MarkaId == searchCarRequestModel.MarkaId));
         return await cars.ToListAsync();
     }
 
@@ -44,5 +34,60 @@ public class CarRepository : Repository<Car>, ICarRepository
         return _dbSet.Where(c => c.IsActive)
             .Skip(pageSize * pageNumber)
             .Take(pageSize);
+    }
+
+    public async Task<CarStatisticsResponseModel> GetStatistics()
+    {
+        var startDatTime = DateTime.UtcNow.AddDays(-6).Date;
+        var isActiveTotal = await _dbSet.CountAsync(c => c.IsActive && !c.IsSold);
+        var isNotActiveTotal = await _dbSet.CountAsync(c => !c.IsActive && !c.IsSold);
+        var isSoldTotal = await _dbSet.CountAsync(c => c.IsSold);
+
+        var weeklyData = await _dbSet
+            .Where(c => c.CreatedAt >= startDatTime)
+            .GroupBy(c => new {c.CreatedAt.Date })
+            .Select(group => new StatisticsByDay()
+            {
+                DaywhisMounth = group.Key.Date,
+                Count = group.Count()
+            })
+            .OrderBy(c=>c.DaywhisMounth)
+            .ToListAsync();
+
+        return new CarStatisticsResponseModel()
+        {
+            ActiveCar = weeklyData,
+            TotalCarCount = new double[] { isActiveTotal, isNotActiveTotal, isSoldTotal }
+        };
+    }
+
+    public Task UpdatePaymentAt(long carId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public async Task<CalculateCheckResponseModel> CalculateCheck(CalculateCheckRequestModel calculateCheckResponseModel)
+    {
+        var car = await _dbSet.FirstAsync(c=>c.Id == calculateCheckResponseModel.CarId);
+        var carCreationDate = car.PaymentAt.Date;
+        var currentDate = DateTime.UtcNow.Date;
+        
+        var weekdays = Enumerable.Range(0, (currentDate - carCreationDate).Days + 1)
+            .Count(offset => (carCreationDate + TimeSpan.FromDays(offset)).DayOfWeek >= DayOfWeek.Monday &&
+                             (carCreationDate + TimeSpan.FromDays(offset)).DayOfWeek <= DayOfWeek.Friday);
+
+        var weekends = Enumerable.Range(0, (currentDate - carCreationDate).Days + 1)
+            .Count(offset => (carCreationDate + TimeSpan.FromDays(offset)).DayOfWeek == DayOfWeek.Saturday ||
+                             (carCreationDate + TimeSpan.FromDays(offset)).DayOfWeek == DayOfWeek.Sunday);
+
+        return new CalculateCheckResponseModel()
+        {
+            UserPhoneNumber = car.UserPhoneNumber,
+            WeeklyDayCount = weekdays,
+            WeeklyDayPrice = weekdays * calculateCheckResponseModel.WeeklyDayPrice,
+            WeeklyEndCount = weekends,
+            WeeklyEndPrice = weekends * calculateCheckResponseModel.WeeklyEndPrice,
+            DateTime = currentDate.ToString(),
+        };
     }
 }

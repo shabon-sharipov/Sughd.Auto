@@ -13,7 +13,7 @@ public class UserRepository : Repository<User>, IUserRepository
     {
     }
 
-    public async Task<List<UserInfoForSaleCarResponseModel>> SearchByUserName(string phoneNumber)
+    public async Task<List<UserInfoForSaleCarResponseModel>> SearchByPhoneNumber(string phoneNumber)
     {
         var userNames = _dbSet.Where(u => u.PhoneNumber.StartsWith(phoneNumber)).Select(u =>
             new UserInfoForSaleCarResponseModel { Id = u.Id, Name = u.UserName, PhoneNumber = u.PhoneNumber });
@@ -47,5 +47,12 @@ public class UserRepository : Repository<User>, IUserRepository
         var user = _dbSet.FirstOrDefault(u => u.UserName == userName);
 
         return await Task.FromResult(user);
+    }
+
+    public async Task<double[]> GetStatistics()
+    {
+        var workers = await _dbSet.CountAsync(c => c.Roles.Any());
+        var customer = await _dbSet.CountAsync(c => !c.Roles.Any());
+        return new double[] { workers, customer};
     }
 }

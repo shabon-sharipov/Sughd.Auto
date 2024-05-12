@@ -24,6 +24,13 @@ public class UserController : ControllerBase
         var result = await _userService.GetById(id, CancellationToken.None);
         return Ok(result);
     }
+    
+    [HttpGet("GetStatistics")]
+    public async Task<IActionResult> GetStatistics()
+    {
+        var result = await _userService.GetStatistics();
+        return Ok(result);
+    }
 
     [HttpGet("GetAll")]
     public async Task<IActionResult> GetAll([FromQuery] int pageSize, [FromQuery] int offSet)

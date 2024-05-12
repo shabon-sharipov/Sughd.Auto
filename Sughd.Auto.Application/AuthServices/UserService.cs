@@ -15,6 +15,7 @@ public interface IUserService
     Task<UserResponseModel> Update(long id, UserUpdateRequestModel entity, CancellationToken cancellationToken);
     Task<List<UserResponseModel>> Get(int pageSize, int pageNumber, CancellationToken cancellationToken);
     Task<UserResponseModel> Delete(long id, CancellationToken cancellationToken);
+    Task<double[]> GetStatistics();
     Task<UserResponseModel> FindByNameAsync(string email, CancellationToken cancellationToken);
 }
 
@@ -94,6 +95,11 @@ public class UserService : IUserService
         _userRepository.Delete(user);
         await _userRepository.SaveChangesAsync(cancellationToken);
         return _mapper.Map<UserResponseModel>(user);
+    }
+
+    public Task<double[]> GetStatistics()
+    {
+        return _userRepository.GetStatistics();
     }
 
     public async Task<UserResponseModel> FindByNameAsync(string email, CancellationToken cancellationToken)

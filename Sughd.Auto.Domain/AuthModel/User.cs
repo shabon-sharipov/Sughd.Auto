@@ -15,7 +15,7 @@ public class User : EntityBase
 
     public string RefreshToken { get; set; }
 
-    public virtual List<Role> Roles { get; set; } = [];
+    public virtual List<Role> Roles { get; set; } = new();
     
-    public virtual List<FavoriteUserCar> FavoriteUserCars { get; set; } = [];
+    public virtual List<FavoriteUserCar> FavoriteUserCars { get; set; } = new();
 }
