@@ -16,6 +16,4 @@ public class UserResponseModel : User
     public string Password { get; set; } = string.Empty;
 
     public List<Role> Role { get; set; }
-
-    public List<CarResponseModel> Cars { get; set; } = new();
 }

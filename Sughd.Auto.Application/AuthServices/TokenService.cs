@@ -57,7 +57,7 @@ public class TokenService : ITokenService
         _userRepository.Update(user);
         await _userRepository.SaveChangesAsync();
 
-        var roleResponse = roles.Count != 0 ? _mapper.Map<List<RoleResponseModel>>(roles) : [];
+        var roleResponse = roles.Count != 0 ? _mapper.Map<List<RoleResponseModel>>(roles) : new();
         
             return new JwtTokenResponse
         {

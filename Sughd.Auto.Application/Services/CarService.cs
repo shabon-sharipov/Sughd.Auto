@@ -22,6 +22,7 @@ public class CarService : ICarService
     public async Task<CarResponseModel> Create(CarRequestModel entity, CancellationToken cancellationToken)
     {
         var car = _mapper.Map<Car>(entity);
+        car.IsActive = true;
         await _carRepository.AddAsync(car, cancellationToken);
         await _carRepository.SaveChangesAsync(cancellationToken);
 
@@ -48,6 +49,7 @@ public class CarService : ICarService
         }
         
         var result = _mapper.Map(entity, car);
+        car.UpdatedAt = DateTime.UtcNow.AddMinutes(300);
         await _carRepository.SaveChangesAsync(cancellationToken);
 
         return _mapper.Map<CarResponseModel>(result);
@@ -56,7 +58,7 @@ public class CarService : ICarService
     public async Task<List<CarResponseModel>> Get(int pageSize, int pageNumber, CancellationToken cancellationToken)
     {
         var result = await _carRepository.GetAllAsync(pageSize, pageNumber, cancellationToken);
-        var car = _mapper.Map<List<CarResponseModel>>(result.ToList());
+        var car = _mapper.Map<List<CarResponseModel>>(result.ToList().Where(c => c.IsSold == false));
         return car;
     }
     
@@ -68,7 +70,8 @@ public class CarService : ICarService
             throw new EntityNotFoundException($"Not found car, by {id}");
         }
 
-        _carRepository.Delete(car);
+        car.IsSold = true;
+        car.DeletedAt = DateTime.UtcNow.AddMinutes(300);
         await _carRepository.SaveChangesAsync(cancellationToken);
         return _mapper.Map<CarResponseModel>(car);
     }
@@ -83,5 +86,27 @@ public class CarService : ICarService
 
         car.Images = images;
         await _carRepository.SaveChangesAsync();
+    }
+
+    public async Task UpdateStatus(long id, bool isActive)
+    {
+        var car = await _carRepository.FindAsync(id);
+        if (car == null)
+        {
+            throw new EntityNotFoundException($"Not found car, by {id}");
+        }
+
+        car.IsActive = isActive;
+        await _carRepository.SaveChangesAsync();
+    }
+
+    public Task<CarStatisticsResponseModel> GetStatistics()
+    {
+        return _carRepository.GetStatistics();
+    }
+
+    public Task<List<CarResponseModel>> GetAllForShowToUser(int pageSize, int pageNumber, CancellationToken cancellationToken)
+    {
+        throw new NotImplementedException();
     }
 }

@@ -18,9 +18,9 @@ public class SearchService(
       return await carRepository.Search(searchCarRequestModel);
     }
 
-    public async Task<List<UserInfoForSaleCarResponseModel>> SearchByUserName(string phoneNumber)
+    public async Task<List<UserInfoForSaleCarResponseModel>> SearchByPhoneNumber(string phoneNumber)
     {
-        return await userRepository.SearchByUserName(phoneNumber);
+        return await userRepository.SearchByPhoneNumber(phoneNumber);
     }
 
     public async Task<List<CarMarkaResponsModel>> SearchByMarkaName(string markaName)

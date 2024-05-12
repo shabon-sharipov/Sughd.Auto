@@ -6,37 +6,16 @@ namespace Sughd.Auto.Application.ResponseModels;
 public class CarResponseModel
 {
     public long Id { get; set; }
-    
-    public string VINCode { get; set; } = string.Empty;
 
-    public string DateOfPablisher { get; set; } = string.Empty;
-
-    public decimal Price { get; set; }
-
-    public decimal EngineCapacity { get; set; }
-
-    public decimal Mileage { get; set; }
-
-    public bool IsRastamogeno { get; set; }
+    public string DateOfPublisher { get; set; } = string.Empty;
 
     public List<string> Images { get; set; }
-
+  
+    public string UserPhoneNumber { get; set; }
     public bool IsActive { get; set; }
-
-    public string FuelType { get; set; } = string.Empty;
-
-    public string Transmission { get; set; } = string.Empty;
-
-    public string CarBody { get; set; } = string.Empty;
-    public string CarNumber { get; set; } = string.Empty;
-    public int UserId { get; set; }
-    public string UserName { get; set; }
-
-    public CarMarkaResponsModel Marka { get; set; }
+    public string MarkaName { get; set; } = string.Empty;
     public long MarkaId { get; set; }
 
-    public CarModelResponseModel Model { get; set; }
+    public string ModelName { get; set; } = string.Empty;
     public long ModelId { get; set; }
-
-    public string Color { get; set; } = string.Empty;
 }

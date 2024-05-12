@@ -29,16 +29,20 @@ public class AutoMapperConfiguration : Profile
     {
         CreateMap<CarRequestModel, Car>();
         CreateMap<Car, CarResponseModel>()
-            .ForMember(c
-                => c.UserName, o
-                => o.MapFrom(c => c.User.UserName));
+            .ForMember(cr
+                => cr.MarkaName, c
+                => c.MapFrom(c => c.Marka.Name))
+            .ForMember(cr
+                => cr.ModelName, c
+                => c.MapFrom(c => c.Model.Name));
     }
 
     private void MapModel()
     {
         CreateMap<CarModelRequestModel, Model>();
         CreateMap<Model, CarModelResponseModel>()
-            .ForMember(c
+            .ForMember(
+                c
                 => c.MarkaName, o
                 => o.MapFrom(c => c.Marka.Name));
     }

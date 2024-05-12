@@ -13,7 +13,7 @@ public class UserRepository : Repository<User>, IUserRepository
     {
     }
 
-    public async Task<List<UserInfoForSaleCarResponseModel>> SearchByUserName(string phoneNumber)
+    public async Task<List<UserInfoForSaleCarResponseModel>> SearchByPhoneNumber(string phoneNumber)
     {
         var userNames = _dbSet.Where(u => u.PhoneNumber.StartsWith(phoneNumber)).Select(u =>
             new UserInfoForSaleCarResponseModel { Id = u.Id, Name = u.UserName, PhoneNumber = u.PhoneNumber });

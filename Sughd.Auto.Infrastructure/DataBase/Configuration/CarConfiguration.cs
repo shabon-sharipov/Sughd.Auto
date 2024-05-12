@@ -21,21 +21,8 @@ public class CarConfiguration : IEntityTypeConfiguration<Car>
             .HasForeignKey(c => c.ModelId)
             .OnDelete(DeleteBehavior.Restrict);
         
-        builder.HasOne(c => c.User)
-            .WithMany()
-            .HasForeignKey(c => c.UserId)
-            .OnDelete(DeleteBehavior.Restrict);
-
-        builder.Property(c => c.VINCode);
-        builder.Property(c => c.DateOfPablisher);
-        builder.Property(c => c.Price);
-        builder.Property(c => c.EngineCapacity);
-        builder.Property(c => c.IsRastamogeno);
+        builder.Property(c => c.DateOfPublisher);
         builder.Property(c => c.IsActive);
-        builder.Property(c => c.CarNumber);
-        builder.Property(c => c.FuelType);
-        builder.Property(c => c.Transmission);
-        builder.Property(c => c.CarBody);
-        builder.Property(c => c.Color);
+        builder.Property(c => c.UserPhoneNumber);
     }
 }

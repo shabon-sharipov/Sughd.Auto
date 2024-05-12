@@ -39,6 +39,13 @@ public class CarController : ControllerBase
         return Ok(result);
     }
 
+    [HttpGet("GetStatistics")]
+    public async Task<IActionResult> GetStatistics()
+    {
+        var result = await _carService.GetStatistics();
+        return Ok(result);
+    }
+    
     [HttpPost]
     public async Task<IActionResult> Post([FromBody]CarRequestModel carRequestModel)
     {
@@ -51,6 +58,13 @@ public class CarController : ControllerBase
     {
         var result = await _carService.Update(id, carRequestModel, CancellationToken.None);
         return Ok(result);
+    }
+    
+    [HttpPut("UpdateStatus")]               
+    public async Task<IActionResult> UpdateStatus(long id, bool isActive)
+    {
+        await _carService.UpdateStatus(id, isActive);
+        return Ok("Successfully updated");
     }
     
     [HttpPut("UpdateImage")]
