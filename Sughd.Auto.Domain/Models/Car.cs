@@ -19,4 +19,6 @@ public class Car : EntityBase
 
     public virtual Model Model { get; set; }
     public long ModelId { get; set; }
+    
+    public DateTime PaymentAt { get; set; } = DateTime.UtcNow.AddMinutes(300);
 }

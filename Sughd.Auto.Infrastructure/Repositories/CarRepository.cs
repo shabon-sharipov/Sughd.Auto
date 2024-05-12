@@ -38,53 +38,56 @@ public class CarRepository : Repository<Car>, ICarRepository
 
     public async Task<CarStatisticsResponseModel> GetStatistics()
     {
-        var startDatTime = DateTime.UtcNow.AddMinutes(300).AddDays(-6);
+        var startDatTime = DateTime.UtcNow.AddDays(-6).Date;
         var isActiveTotal = await _dbSet.CountAsync(c => c.IsActive && !c.IsSold);
         var isNotActiveTotal = await _dbSet.CountAsync(c => !c.IsActive && !c.IsSold);
         var isSoldTotal = await _dbSet.CountAsync(c => c.IsSold);
 
         var weeklyData = await _dbSet
-            .Where(c => c.UpdatedAt >= startDatTime)
-            .GroupBy(c => new { c.IsActive, c.IsSold, c.UpdatedAt.Date })
-            .Select(group => new
+            .Where(c => c.CreatedAt >= startDatTime)
+            .GroupBy(c => new {c.CreatedAt.Date })
+            .Select(group => new StatisticsByDay()
             {
-                IsSold = group.Key.IsSold,
-                IsActive = group.Key.IsActive,
-                Date = group.Key.Date,
+                DaywhisMounth = group.Key.Date,
                 Count = group.Count()
             })
+            .OrderBy(c=>c.DaywhisMounth)
             .ToListAsync();
-
-        var activeWeekly = weeklyData
-            .Where(d => d.IsActive && !d.IsSold)
-            .Select(d => new StatisticsByDay()
-            {
-                Count = d.Count,
-                DaywhisMounth= $"{d.Date.Day}.{d.Date.Month}"
-            }).ToList();
-
-        var inactiveWeekly = weeklyData
-            .Where(d => !d.IsActive && !d.IsSold)
-            .Select(d => new StatisticsByDay()
-            {
-                Count = d.Count,
-                DaywhisMounth = $"{d.Date.Day}.{d.Date.Month}"
-            }).ToList();
-
-        var soldWeekly = weeklyData
-            .Where(d => d.IsSold)
-            .Select(d => new StatisticsByDay()
-            {
-                Count = d.Count,
-                DaywhisMounth = $"{d.Date.Day}.{d.Date.Month}"
-            }).ToList();
 
         return new CarStatisticsResponseModel()
         {
-            ActiveCar = activeWeekly,
-            InActive = inactiveWeekly,
-            SoldCar = soldWeekly,
+            ActiveCar = weeklyData,
             TotalCarCount = new double[] { isActiveTotal, isNotActiveTotal, isSoldTotal }
+        };
+    }
+
+    public Task UpdatePaymentAt(long carId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public async Task<CalculateCheckResponseModel> CalculateCheck(CalculateCheckRequestModel calculateCheckResponseModel)
+    {
+        var car = await _dbSet.FirstAsync(c=>c.Id == calculateCheckResponseModel.CarId);
+        var carCreationDate = car.PaymentAt.Date;
+        var currentDate = DateTime.UtcNow.Date;
+        
+        var weekdays = Enumerable.Range(0, (currentDate - carCreationDate).Days + 1)
+            .Count(offset => (carCreationDate + TimeSpan.FromDays(offset)).DayOfWeek >= DayOfWeek.Monday &&
+                             (carCreationDate + TimeSpan.FromDays(offset)).DayOfWeek <= DayOfWeek.Friday);
+
+        var weekends = Enumerable.Range(0, (currentDate - carCreationDate).Days + 1)
+            .Count(offset => (carCreationDate + TimeSpan.FromDays(offset)).DayOfWeek == DayOfWeek.Saturday ||
+                             (carCreationDate + TimeSpan.FromDays(offset)).DayOfWeek == DayOfWeek.Sunday);
+
+        return new CalculateCheckResponseModel()
+        {
+            UserPhoneNumber = car.UserPhoneNumber,
+            WeeklyDayCount = weekdays,
+            WeeklyDayPrice = weekdays * calculateCheckResponseModel.WeeklyDayPrice,
+            WeeklyEndCount = weekends,
+            WeeklyEndPrice = weekends * calculateCheckResponseModel.WeeklyEndPrice,
+            DateTime = currentDate.ToString(),
         };
     }
 }

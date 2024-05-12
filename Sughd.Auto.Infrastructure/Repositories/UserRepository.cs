@@ -48,4 +48,11 @@ public class UserRepository : Repository<User>, IUserRepository
 
         return await Task.FromResult(user);
     }
+
+    public async Task<double[]> GetStatistics()
+    {
+        var workers = await _dbSet.CountAsync(c => c.Roles.Any());
+        var customer = await _dbSet.CountAsync(c => !c.Roles.Any());
+        return new double[] { workers, customer};
+    }
 }

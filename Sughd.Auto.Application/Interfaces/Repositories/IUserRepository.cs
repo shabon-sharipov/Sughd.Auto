@@ -11,4 +11,5 @@ public interface IUserRepository : IRepository<User>
     Task<User ?> FindByEmailAsync(string email);
     Task<User ?> FindByEmailAndPasswordAsync(string email, string password);
     Task<User ?> FindByNameAsync(string userName);
+    Task<double[]> GetStatistics();
 }

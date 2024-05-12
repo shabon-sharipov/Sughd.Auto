@@ -100,9 +100,26 @@ public class CarService : ICarService
         await _carRepository.SaveChangesAsync();
     }
 
+    public async Task UpdatePaymentAt(long carId)
+    {
+        var car = await _carRepository.FindAsync(carId);
+        if (car == null)
+        {
+            throw new EntityNotFoundException($"Not found car, by {carId}");
+        }
+
+        car.PaymentAt = DateTime.UtcNow.AddMinutes(300);
+        await _carRepository.SaveChangesAsync();
+    }
+
     public Task<CarStatisticsResponseModel> GetStatistics()
     {
         return _carRepository.GetStatistics();
+    }
+
+    public async Task<CalculateCheckResponseModel> CalculateCheck(CalculateCheckRequestModel calculateCheckResponseModel)
+    {
+        return await _carRepository.CalculateCheck(calculateCheckResponseModel);
     }
 
     public Task<List<CarResponseModel>> GetAllForShowToUser(int pageSize, int pageNumber, CancellationToken cancellationToken)
