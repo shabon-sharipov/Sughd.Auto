@@ -54,6 +54,12 @@ public static class DependencyInjection
             builder.Configuration.GetConnectionString("DefaultConnection");
             options.UseLazyLoadingProxies();
         });
+        
+        services.AddDbContext<EFContextV2>(options =>
+        {
+            builder.Configuration.GetConnectionString("DefaultConnectionV2");
+            options.UseLazyLoadingProxies();
+        });
     }
 
     public static void AddAuthToken(this IServiceCollection services, IConfiguration configuration)

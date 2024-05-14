@@ -15,5 +15,5 @@ public class TestRepository : Repository<Test>, ITestRepository
     {
         var tests = _dbSet.Where(u => u.Header.ToLower().Trim().StartsWith(text.ToLower().Trim()));
         return (await tests.ToListAsync())!;
-        }       
+    }
 }

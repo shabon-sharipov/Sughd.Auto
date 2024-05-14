@@ -8,9 +8,9 @@ using Sughd.Auto.Infrastructure.DataBase;
 
 namespace Sughd.Auto.Infrastructure.Repositories;
 
-public class CarRepository : Repository<Car>, ICarRepository
+public class CarRepository : RepositoryV2<Car>, ICarRepository
 {
-    public CarRepository(EFContext context) : base(context)
+    public CarRepository(EFContextV2 context) : base(context)
     {
     }
 
@@ -20,12 +20,12 @@ public class CarRepository : Repository<Car>, ICarRepository
                                      && c.IsSold == false
                                      && (searchCarRequestModel.ModelId == null ||
                                          c.ModelId == searchCarRequestModel.ModelId)
+                                     && (searchCarRequestModel.MarkaId == null ||
+                                         c.MarkaId == searchCarRequestModel.MarkaId)
                                      && ((searchCarRequestModel.DateOfPublisherFrom == null ||
                                           c.DateOfPublisher >= searchCarRequestModel.DateOfPublisherFrom) &&
                                          (searchCarRequestModel.DateOfPublisherTo == null ||
-                                          c.DateOfPublisher >= searchCarRequestModel.DateOfPublisherTo))
-                                     && (searchCarRequestModel.MarkaId == null ||
-                                         c.MarkaId == searchCarRequestModel.MarkaId));
+                                          c.DateOfPublisher <= searchCarRequestModel.DateOfPublisherTo)));
         return await cars.ToListAsync();
     }
 

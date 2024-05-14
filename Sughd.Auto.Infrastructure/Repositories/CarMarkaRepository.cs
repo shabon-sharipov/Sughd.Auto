@@ -5,11 +5,11 @@ using Sughd.Auto.Infrastructure.DataBase;
 
 namespace Sughd.Auto.Infrastructure.Repositories;
 
-public class CarMarkaRepository : Repository<Marka>, ICarMarkaRepository
+public class CarMarkaRepository : RepositoryV2<Marka>, ICarMarkaRepository
 {
     private readonly DbSet<Marka> _dbSet;
-    private readonly EFContext _context;
-    public CarMarkaRepository(EFContext context) : base(context)
+    private readonly EFContextV2 _context;
+    public CarMarkaRepository(EFContextV2 context) : base(context)
     {
         _dbSet = context.Set<Marka>();
         _context = context;
