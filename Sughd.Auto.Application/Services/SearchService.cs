@@ -13,9 +13,11 @@ public class SearchService(
     ICarMarkaRepository markaRepository,
     IMapper mapper) : ISearchService
 {
-    public async Task<List<Car>> Search(SearchCarRequestModel searchCarRequestModel)
+    public async Task<List<CarResponseModel>> Search(SearchCarRequestModel searchCarRequestModel)
     {
-      return await carRepository.Search(searchCarRequestModel);
+        var result = await carRepository.Search(searchCarRequestModel);
+
+        return mapper.Map<List<CarResponseModel>>(result);
     }
 
     public async Task<List<UserInfoForSaleCarResponseModel>> SearchByPhoneNumber(string phoneNumber)

@@ -6,7 +6,7 @@ namespace Sughd.Auto.Application.Interfaces;
 
 public interface ISearchService
 {
-    Task<List<Car>> Search(SearchCarRequestModel searchCarRequestModel);
+    Task<List<CarResponseModel>> Search(SearchCarRequestModel searchCarRequestModel);
     Task<List<UserInfoForSaleCarResponseModel>> SearchByPhoneNumber(string phoneNumber);
     Task<List<CarMarkaResponsModel>> SearchByMarkaName(string markaName);
 }
