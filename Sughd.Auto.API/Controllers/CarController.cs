@@ -46,6 +46,7 @@ public class CarController : ControllerBase
         return Ok(result);
     }
     
+    [AllowAnonymous]
     [HttpGet("CalculateCheck")]
     public async Task<IActionResult> CalculateCheck([FromQuery]CalculateCheckRequestModel checkRequestModel)
     {

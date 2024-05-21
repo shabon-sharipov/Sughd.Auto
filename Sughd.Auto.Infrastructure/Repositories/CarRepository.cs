@@ -69,7 +69,7 @@ public class CarRepository : RepositoryV2<Car>, ICarRepository
     public async Task<CalculateCheckResponseModel> CalculateCheck(CalculateCheckRequestModel calculateCheckResponseModel)
     {
         var car = await _dbSet.FirstAsync(c=>c.Id == calculateCheckResponseModel.CarId);
-        var carCreationDate = car.PaymentAt.Date;
+        var carCreationDate = car.PaymentAt;
         var currentDate = DateTime.UtcNow.Date;
         
         var weekdays = Enumerable.Range(0, (currentDate - carCreationDate).Days + 1)
