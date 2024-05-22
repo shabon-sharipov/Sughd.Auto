@@ -2,7 +2,7 @@
 
 public class CalculateCheckRequestModel
 {
-    public long CarId { get; set; }
+    public Guid CarId { get; set; }
     public decimal WeeklyDayPrice { get; set; }
     public decimal WeeklyEndPrice { get; set; }
 }

@@ -11,6 +11,10 @@ public class Car : EntityBase
 
     public bool IsActive { get; set; }
     
+    public string QRCode { get; set; }
+
+    public Guid CalculateCheck { get; set; } = Guid.NewGuid();
+    
     public bool IsSold { get; set; }
 
     public string UserPhoneNumber { get; set; } = string.Empty;

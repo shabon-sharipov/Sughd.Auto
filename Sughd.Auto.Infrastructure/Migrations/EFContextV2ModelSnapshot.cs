@@ -145,6 +145,9 @@ namespace Sughd.Auto.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
+                    b.Property<Guid>("CalculateCheck")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
@@ -172,6 +175,10 @@ namespace Sughd.Auto.Infrastructure.Migrations
 
                     b.Property<DateTime>("PaymentAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("QRCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -284,12 +291,6 @@ namespace Sughd.Auto.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DeletedAt")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Header")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -300,9 +301,6 @@ namespace Sughd.Auto.Infrastructure.Migrations
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 

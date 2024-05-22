@@ -68,7 +68,7 @@ public class CarRepository : RepositoryV2<Car>, ICarRepository
 
     public async Task<CalculateCheckResponseModel> CalculateCheck(CalculateCheckRequestModel calculateCheckResponseModel)
     {
-        var car = await _dbSet.FirstAsync(c=>c.Id == calculateCheckResponseModel.CarId);
+        var car = await _dbSet.FirstAsync(c=>c.CalculateCheck == calculateCheckResponseModel.CarId);
         var carCreationDate = car.PaymentAt;
         var currentDate = DateTime.UtcNow.Date;
         

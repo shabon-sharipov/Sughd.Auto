@@ -4,6 +4,7 @@ using Sughd.Auto.Application.RequestModels;
 using Sughd.Auto.Application.ResponseModels;
 using Sughd.Auto.Domain.Models;
 using AutoMapper;
+using Newtonsoft.Json;
 using Sughd.Auto.Application.Exceptions;
 
 namespace Sughd.Auto.Application.Services;
@@ -23,12 +24,24 @@ public class CarService : ICarService
     {
         var car = _mapper.Map<Car>(entity);
         car.IsActive = true;
+        var qrCode = GetQRCode(car.CalculateCheck);
+        car.QRCode = qrCode;
         await _carRepository.AddAsync(car, cancellationToken);
         await _carRepository.SaveChangesAsync(cancellationToken);
-
+        
         return _mapper.Map<CarResponseModel>(car);
     }
 
+    public string GetQRCode(Guid qrCodeUrl)
+    {
+        string messageUrl =
+            $"http://sughdauto-001-site3.ltempurl.com/message/{Uri.EscapeDataString(qrCodeUrl.ToString())}"; // Encode the car ID into the URL
+        JsonConvert.SerializeObject(messageUrl);
+        string apiUrl =
+            $"https://api.qrserver.com/v1/create-qr-code/?size=300x300&data={Uri.EscapeDataString(messageUrl)}";
+        return apiUrl;
+    }
+ 
     public async Task<CarResponseModel> GetById(long id, CancellationToken cancellationToken)
     {
         var car = await _carRepository.FindAsync(id, cancellationToken);

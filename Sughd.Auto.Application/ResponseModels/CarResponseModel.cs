@@ -10,6 +10,8 @@ public class CarResponseModel
     public string DateOfPublisher { get; set; } = string.Empty;
 
     public List<string> Images { get; set; }
+    
+    public string QRCode { get; set; }
   
     public string UserPhoneNumber { get; set; }
     public bool IsActive { get; set; }
