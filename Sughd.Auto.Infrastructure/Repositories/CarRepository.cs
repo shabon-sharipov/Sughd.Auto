@@ -29,6 +29,14 @@ public class CarRepository : RepositoryV2<Car>, ICarRepository
         return await cars.ToListAsync();
     }
 
+    public async Task<List<Car>> GetAllAsync(int pageSize, int PageNumber, CancellationToken cancellationToken)
+    {
+        var cars = _dbSet.Where(c => !c.IsSold).Skip(pageSize * PageNumber)
+            .Take(pageSize);
+
+        return await cars.ToListAsync(cancellationToken: cancellationToken);
+    }
+
     public async Task<IQueryable<Car>> GetCarsIfIsActive(int pageSize, int pageNumber)
     {
         return _dbSet.Where(c => c.IsActive)

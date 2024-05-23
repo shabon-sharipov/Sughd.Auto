@@ -71,7 +71,7 @@ public class CarService : ICarService
     public async Task<List<CarResponseModel>> Get(int pageSize, int pageNumber, CancellationToken cancellationToken)
     {
         var result = await _carRepository.GetAllAsync(pageSize, pageNumber, cancellationToken);
-        var car = _mapper.Map<List<CarResponseModel>>(result.ToList().Where(c => c.IsSold == false));
+        var car = _mapper.Map<List<CarResponseModel>>(result);
         return car;
     }
     
