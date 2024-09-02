@@ -5,9 +5,9 @@ using Sughd.Auto.Infrastructure.Repositories;
 
 namespace Sughd.Auto.Infrastructure.AuthRepositories;
 
-public class RoleRepository : RepositoryV2<Role>, IRoleRepository
+public class RoleRepository : Repository<Role>, IRoleRepository
 {
-    public RoleRepository(EFContextV2 context) : base(context)
+    public RoleRepository(EFContext context) : base(context)
     {
     }
 

@@ -8,9 +8,9 @@ using Sughd.Auto.Infrastructure.DataBase;
 
 namespace Sughd.Auto.Infrastructure.Repositories;
 
-public class CarRepository : RepositoryV2<Car>, ICarRepository
+public class CarRepository : Repository<Car>, ICarRepository
 {
-    public CarRepository(EFContextV2 context) : base(context)
+    public CarRepository(EFContext context) : base(context)
     {
     }
 

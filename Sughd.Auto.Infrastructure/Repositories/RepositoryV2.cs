@@ -6,9 +6,9 @@ namespace Sughd.Auto.Infrastructure.Repositories;
 public abstract class RepositoryV2<T> where T : class // need find how to Use EntityBase also
 {
     protected readonly DbSet<T> _dbSet;
-    private readonly EFContextV2 _context;
+    private readonly EFContext _context;
 
-    public RepositoryV2(EFContextV2 context)
+    public RepositoryV2(EFContext context)
     {
         _dbSet = context.Set<T>();
         _context = context;

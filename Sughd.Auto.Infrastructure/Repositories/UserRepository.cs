@@ -7,9 +7,9 @@ using Sughd.Auto.Infrastructure.DataBase;
 
 namespace Sughd.Auto.Infrastructure.Repositories;
 
-public class UserRepository : RepositoryV2<User>, IUserRepository
+public class UserRepository : Repository<User>, IUserRepository
 {
-    public UserRepository(EFContextV2 context) : base(context)
+    public UserRepository(EFContext context) : base(context)
     {
     }
 

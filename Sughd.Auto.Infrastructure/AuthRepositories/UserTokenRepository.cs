@@ -5,9 +5,9 @@ using Sughd.Auto.Infrastructure.Repositories;
 
 namespace Sughd.Auto.Infrastructure.AuthRepositories;
 
-public class UserTokenRepository : RepositoryV2<UserToken>, IUserTokenRepository
+public class UserTokenRepository : Repository<UserToken>, IUserTokenRepository
 {
-    public UserTokenRepository(EFContextV2 context) : base(context)
+    public UserTokenRepository(EFContext context) : base(context)
     {
     }
 }

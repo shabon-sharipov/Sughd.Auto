@@ -5,9 +5,9 @@ using Sughd.Auto.Infrastructure.DataBase;
 
 namespace Sughd.Auto.Infrastructure.Repositories;
 
-public class FavoriteUserCarRepository : RepositoryV2<FavoriteUserCar>, IFavoriteUserCarRepository
+public class FavoriteUserCarRepository : Repository<FavoriteUserCar>, IFavoriteUserCarRepository
 {
-    public FavoriteUserCarRepository(EFContextV2 context) : base(context)
+    public FavoriteUserCarRepository(EFContext context) : base(context)
     {
     }
 

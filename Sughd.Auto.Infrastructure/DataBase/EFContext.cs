@@ -16,8 +16,8 @@ public class EFContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer(
-            "Data Source=SQL6032.site4now.net;Initial Catalog=db_aa819e_sughdauto;User Id=db_aa819e_sughdauto_admin;Password=987094321_SH");
+        optionsBuilder.UseNpgsql(
+            "Host=localhost;Port=5432;Database=Sughd.Auto1;Username=postgres;Password=4321");
         base.OnConfiguring(optionsBuilder);
     }
     
